@@ -4,7 +4,7 @@
     <header id="header" class="clear"> 
       <!-- ################################################################################################ -->
       <div id="logo" class="fl_left">
-        <h1><a href="index.html"><img src="images/logo.png"></a>&nbsp;&nbsp; <marquee width="550px" align="centre"><font color="#fff307">ေဇတ၀န္ဓမၼာရုံေက်ာင္းတုိက္</font></marquee>&nbsp; &nbsp;<img src="images/logo.png"></h1>
+        <h1><a href="index.html"><img src="{{ asset('images/logo.png') }}"></a>&nbsp;&nbsp; <marquee width="610px" align="centre"><font color="#fff307">ေဇတ၀န္ဓမၼာရုံေက်ာင္းတုိက္</font></marquee>&nbsp; &nbsp;<img src="{{ asset('images/logo.png') }}"></h1>
       </div>
       <!-- ################################################################################################ -->
     </header>
@@ -16,7 +16,7 @@
     <nav id="mainav" class="clear"> 
       <!-- ################################################################################################ -->
       <ul class="clear">
-        <li class="active"><a href="index.php">မူလစာမ်က္ႏွာ</a></li>
+        <li class="active"><a href="{{route('user.category', ['category' => 'home'])}}">မူလစာမ်က္ႏွာ</a></li>
         <li><a class="drop" href="tharthanar1.php">သာသနာျပဳလုပ္ငန္းစဥ္မ်ား</a>
           <ul>
             <li><a href="tharthanar2.php">သာသနာျပဳစြမ္းရည္ ျမွင့္တင္ေရးသင္တန္း</a></li>
