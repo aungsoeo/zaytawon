@@ -1,0 +1,141 @@
+.bannerbox{
+	min-height:200px; 
+	height:auto;
+}
+
+.h2style{
+	height: 100%;
+	width: auto;
+	display: inline-block;
+	font-size: 14px;
+	position: relative;
+	margin: 0px;
+	line-height: 34px;
+	font-weight: 400;
+	letter-spacing: 0px;"
+}
+
+#content {
+	padding: 8px 6px;
+}
+.well{
+	padding:8.5px;
+}
+.hasinput{
+	padding:2px !important;
+}
+
+@media (max-width: 367px) and (max-width: 679px) {
+	.customres{
+		width:78%;
+	}
+	.but{
+		width:20%;
+	}
+	.created{
+		display:none;
+	}
+	.modified{
+		display:none;
+	}
+	.hideinsmall{
+		display:none;
+	}
+}
+
+@media (max-width: 767px) {
+	.customres{
+		width:78%;
+	}
+	.but{
+		width:20%;
+	}
+	.created{
+		display:none;
+	}
+	.modified{
+		display:none;
+	}
+	.hideinsmall{
+		display:none;
+	}
+}
+.form-control{
+	padding:5px;
+}
+
+.alertbox{
+	z-index: 99999;
+	position: absolute;
+	width: 100%;
+	position: absolute;
+	top: 2px;
+	left: -0.1px; 
+	display:none;
+}
+
+.inputrow{
+	display:none;
+}
+
+tr a{
+	color:#333341;
+}
+
+.editable{
+	//background-color:#FFC;
+}
+.hasinput{
+	display:none;
+	padding:2px;
+}
+.hasinput input{
+	width:100%; height:30px;
+}
+#tbl .fa-save{
+	display:none;
+}
+#tbl .fa-undo{
+	display:none;
+}
+.option{
+	width:80px;
+}
+.idrow{
+	width:5%;
+}
+
+.errorfield{
+	border-color:#B94A48;
+	background-color:#FFB6BF;
+}
+
+
+#panel {
+	display: none;
+	margin-bottom: 0px;
+	width:100%; background-color:#F7F7F7;
+}
+#panel table{
+	margin-bottom:0px; border-bottom:1px solid #ccc;
+}
+#panel table tr td{
+	padding:4px; min-width:100px;
+}
+
+.s1{
+	width:100%; margin-bottom:0px; border-bottom:1px solid #dddddd;
+}
+.s2{
+	
+}
+.s3{
+	
+}
+.s4{
+	
+}
+.errorselect{
+	border-color:red !important;
+}
+.capitalized { text-transform: capitalize; }
