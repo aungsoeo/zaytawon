@@ -1,0 +1,19 @@
+@charset "utf-8";
+/*
+Template Name: Centry
+Author: <a href="http://www.os-templates.com/">OS Templates</a>
+Author URI: http://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms
+File: IE9 CSS
+*/
+
+/*
+The slideshow stacks all of the elements on top of each other and uses modern transitions to fade 
+the individual elements in and out. These techniques are not compatible with IE9 and below.
+
+Using a conditional comment that can only be read by IE, we tell IE to load this CSS file. This 
+file tells the slideshow to show all of the elements. As they are stacked on top of each other 
+only the last element will be visible
+*/
+#bgslideshow ul li, #bgslideshow ul li em{opacity:1;}

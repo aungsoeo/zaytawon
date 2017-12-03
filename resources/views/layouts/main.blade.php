@@ -1,52 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html>
 <head>
-    <title>Baho</title>
-
-     <link rel="shortcut icon" href="{{ asset('images/icon.png') }}" type="image/jpeg">
-    <link rel="icon" href="{{ asset('images/icon.png') }}" type="image/jpeg">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    @section('styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/font.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/theme.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/jquery.fancybox.css') }}">
-    <style type="text/css" media="screen">
-      .catg_title{color:#9b0c15 ;}
-    </style>
-    @show
-
-    <script type="text/javascript">
-      ImageArray = new Array("{{ asset('images/1.jpeg') }}","{{ asset('images/2.jpeg') }}","{{ asset('images/3.jpeg') }}");
-      CurrentImage = 0;
-      ImageCount = ImageArray.length;
-      function RotateBanner()
-      {
-        if(document.images)
-        {
-          CurrentImage++;
-          if(CurrentImage==ImageCount)
-          {
-            CurrentImage=0;
-          }
-          document.Banner.src=ImageArray[CurrentImage];
-          setTimeout("RotateBanner()",2000)
-        }
-      }
-    </script>
+<title>ZAYTAWON</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="{{ asset('/favicon.png') }}" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="{{ asset('layout/styles/layout.css')}}" rel="stylesheet" type="text/css" media="all">
 </head>
-<body onload="RotateBanner()">
-<div id="preloader">
-  <div id="status">&nbsp;</div>
-</div>
-<a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
-
-<div class="container">
+<body id="top" class="bgded fixed">
 
 @include('layouts.common.header')
 
@@ -54,18 +15,13 @@
 
 @include('layouts.common.footer')
 
-</div>
 
-
+<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
 @section('scripts')
-<script src="{{ asset('js/jquery.min.js') }}"></script> 
-<script src="{{ asset('js/wow.min.js') }}"></script> 
-<script src="{{ asset('js/bootstrap.min.js') }}"></script> 
-<script src="{{ asset('js/slick.min.js') }}"></script> 
-<script src="{{ asset('js/jquery.li-scroller.1.0.js') }}"></script> 
-<script src="{{ asset('js/jquery.newsTicker.min.js') }}"></script> 
-<script src="{{ asset('js/jquery.fancybox.pack.js') }}"></script> 
-<script src="{{ asset('js/custom.js') }}"></script>
+<script src="{{ asset('layout/scripts/jquery.min.js')}}"></script>
+<script src="{{ asset('layout/scripts/jquery.backtotop.js')}}"></script>
+<script src="{{ asset('layout/scripts/jquery.mobilemenu.js')}}"></script>
+<script src="{{ asset('layout/scripts/jquery.placeholder.min.js')}}"></script>
 @show
 
 </body>

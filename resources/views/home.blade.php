@@ -7,90 +7,57 @@
 
 @section('content')
 
-<section id="sliderSection">
-    <div class="row">
-      <div class="col-lg-8 col-md-8 col-sm-8">
-        <div class="slick_slider">
-          <div class="single_iteam"> <img src="images/1.jpeg" name="Banner" alt="">
-          </div>
-        </div>
+<div class="wrapper row3">
+  <div class="spacer">
+    <main class="container clear"> 
+      <!-- main body -->
+      <!-- ################################################################################################ -->
+      <div class="one_third first">
+        <article>
+          <a href="education.php"><h3 class="font-x1"><i class="icon circle fa fa-bank"></i> &nbsp; စာသင္တုိက္ စာသင္သားမ်ားဆုိင္ရာ</h3></a>
+          <p class="nospace">Quisque mollis nisl a hendrerit eleifend cum sociis natoque penatibus et magnis dis parturient <a href="#">read more &raquo;</a></p>
+        </article>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <div class="latest_post">
-          <h2>အလွဴရွင္မ်ား</h2>
-          <div class="latest_post_container">
-            <div id="prev-button"><i class="fa fa-chevron-up"></i></div>
-              @include('donor')
-            <div id="next-button"><i class="fa  fa-chevron-down"></i></div>
-          </div>
-        </div>
+      <div class="one_third">
+        <article>
+          <a href="donars.php"><h3 class="font-x1"><i class="icon circle fa fa-book"></i> &nbsp; ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္မ်ား</h3></a>
+          <p class="nospace">Praesent vehicula ipsum erat at congue lorem placerat egestas nulla gravida vitae purus sit amet <a href="#">read more &raquo;</a></p>
+        </article>
       </div>
+      <div class="one_third">
+        <article>
+          <a href="people.php"><h3 class="font-x1"><i class="fa fa-location-arrow"></i> &nbsp; တရားပဲြပင့္ေလွ်ာက္လုိသူမ်ား</h3></a>
+          <p class="nospace">Nunc et bibendum turpis mauris porta vehicula ipsum at maximus felis dapibus cras vitae dolor <a href="#">read more &raquo;</a></p>
+        </article>
+      </div>
+      <!-- ################################################################################################ -->
+      <!-- / main body -->
+      <div class="clear"></div>
+    </main>
+  </div>
+</div>
+
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+  <div class="spacer">
+    <div class="container clear"> 
+      <!-- ################################################################################################ -->
+      <div class="one_half first">
+        <article>
+          <h2 align="center"><b><font size="5px">ပဓာနနာယကဆရာေတာ္</font></b></h2>
+          <h2 align="center">ေဒါက္တာအရွင္ေသာပါက၏ ေထရုပတၱိအက်ဥ္း</h2>
+          <p>Duis accumsan metus vel faucibus fermentum! Sed eget nibh fermentum risus molestie pellentesque. Ut porttitor lorem ut sapien lobortis, vitae blandit velit gravida. Fusce consectetur lectus eget sapien ornare, ut condimentum enim posuere.</p>
+          <p class="btmspace-30">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus posuere ac quam id pretium vivamus justo enim tincidunt at tristique in.</p>
+          <p>Vestibulum non nisl non risus vehicula consequat a eu ipsum. Donec in rutrum felis! Maecenas vitae mattis quam, a congue odio. Donec nec mauris turpis.</p>
+          <p><a class="btn" href="#">Luctus purus nibh</a></p>
+        </article>
+      </div>
+      <div class="one_half"><a href="#"><img src="images/demo/500x400.png" alt=""></a></div>
+      <!-- ################################################################################################ -->
+      <div class="clear"></div>
     </div>
-  </section>
-  <section id="contentSection">
-    <div class="row">
-      <div class="col-lg-8 col-md-8 col-sm-8" style="margin-top: -100px;">
-        <div class="left_content">
-        <div class="single_post_content">
-            <h2>သတင္းမ်ား</h2>
-              @foreach($posts as $p)         
-                  <div class="single_post_content">
-                    <div class="single_post_content_left">
-                      <ul class="business_catgnav  wow fadeInDown">
-                        <li>
-                          <figure class="bsbig_fig"> 
-                            <a href="{{route('post.show',$p->id)}}" class="featured_img">
-                              <img src="{{ asset('upload/posts/'.$p->feature_photo) }}" alt="" >
-                            </a>
-                          </figure>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="single_post_content_right">
-                      <figure class="bsbig_fig">
-                        <label>{{$p->Category->title}}>>{{$p->SubCategory->title}}</label>
-                        <br>
-                        <small>Post on:&nbsp; {{$p->created_at->toFormattedDateString()}}</small>
-                        <figcaption> <a href="{{route('post.show',$p->id)}}">  {{$p->title}} </a> </figcaption>
-                        <p>{{$p->short_description}}</p>                 
-                      </figure>
-                    </div>                      
-                  </div>
-              @endforeach
+  </div>
+</div>
+<!-- ################################################################################################ -->
 
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4" style="float: right; margin-top: 50px;">
-        <aside class="right_content">
-             @include('process')  
-          <div class="single_sidebar wow fadeInDown">              
-             @include('purpose') 
-         </div>
-         <div class="single_sidebar wow fadeInDown">
-             <br>
-             <!-- Start: Copyright 2017 TraceMyIP.org Service Code (163303-11162017)- DO NOT MODIFY //-->
-<div style="line-height:16px;text-align:left;"><script type="text/javascript" src="//s2.tracemyip.org/tracker/lgUrl.php?stlVar2=1500~1510849712~30*2~9B0C15*FFFFFF*FA0000*000000~1*1*0*0*0&amp;rgtype=4684NR-IPIB&amp;pidnVar2=81359&amp;prtVar2=2&amp;scvVar2=12"></script><noscript><a href="https://www.tracemyip.org/tools/website-visitors-counter-traffic-tracker-statistics/"><img src="//s2.tracemyip.org/tracker/1500~1510849712~30*2~9B0C15*FFFFFF*FA0000*000000~1*1*0*0*0/4684NR-IPIB/81359/2/12/ans/" alt="site ip tracker" style="border:0px;"></a></noscript></div>
-<!-- End: TraceMyIP.org Service Code //-->
-         </div>
-        </aside>
-      </div>
-    </div>
-</section>
-
-<?php
-$sliderarr = array();
-foreach($slider as $s){
-  array_push($sliderarr, asset('upload/posts/'.$s->feature_photo));
-}
-?>
-@endsection
-
-@section('scripts')
-@parent
-<script>
-  ImageArray = <?php echo json_encode($sliderarr); ?>;
-  console.log(ImageArray);
-</script>
-<script src="{{ asset('layout/scripts/slider.js') }}"></script> 
 @endsection
