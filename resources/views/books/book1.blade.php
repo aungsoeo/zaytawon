@@ -7,7 +7,6 @@
 
 @section('content')
 
-<!-- ################################################################################################ -->
 <div class="wrapper row3">
   <div class="spacer">
     <main class="container clear"> 
@@ -19,20 +18,21 @@
         <!-- ################################################################################################ -->
         <div id="gallery">
           <figure>
-            <header class="heading">ဓာတ္ပုံမွတ္တမ္းမ်ား</header>
+            <h1 align="center"><b><font size="5px">ေဒါက္တာအရွင္ေသာပါက ေရးသားျပဳစုေသာစာအုပ္မ်ား</font></b></h1>
+            <h1 align="center">ေဇတ၀န္စာစဥ္စာအုပ္မ်ား</h1>
             <ul class="nospace clear">
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
+              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
             </ul>
             <figcaption>Gallery Description Goes Here</figcaption>
           </figure>
@@ -63,14 +63,14 @@
       <div class="sidebar one_quarter"> 
         <!-- ################################################################################################ -->
         <div class="sdb_holder">
-          <a href="education.php"><h6><i class="icon circle fa fa-bank"></i>&nbsp;စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ</h6></a>
+          <h6><i class="icon circle fa fa-bank"></i>&nbsp;စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ</h6>
           <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
         </div>
         <hr>
         <br>
         <div class="sdb_holder">
           <article>
-            <a href="donars.php"><h6><i class="icon circle fa fa-book"></i> &nbsp;ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္မ်ား</h6></a>
+            <h6><i class="icon circle fa fa-book"></i> &nbsp;ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္မ်ား</h6>
             <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
           </article>
         </div>
@@ -78,7 +78,7 @@
         <br>
         <div class="sdb_holder">
           <article>
-            <a href="people.php"><h6><i class="fa fa-location-arrow"></i> &nbsp;တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား</h6></a>
+            <h6><i class="fa fa-location-arrow"></i> &nbsp;တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား</h6>
             <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
           </article>
         </div>
@@ -92,10 +92,12 @@
 </div>
 <!-- ################################################################################################ -->
 
-
 @endsection
 
 @section('scripts')
 @parent
 <!-- your custom script here -->
+<script>
+  $('.file_not_exist').fadeIn().delay(3000).fadeOut();
+</script>
 @endsection

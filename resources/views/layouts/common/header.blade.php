@@ -25,8 +25,8 @@
         </li>
         <li><a class="drop" href="#">စာအုပ္မ်ား</a>
           <ul>
-            <li><a href="books1.php">ေဒါက္တာအရွင္ေသာပါက ေရးသားေသာစာအုပ္မ်ား</a></li>
-            <li><a href="books2.php">ေဒါက္တာေသာပါက၏ ေနာက္ဆုံးေရးေဆာင္ပါးမ်ား</a></li>
+            <li><a href="{{ route('user.category.sub', ['category' => 'books', 'sub' => 'book1']) }}">ေဒါက္တာအရွင္ေသာပါက ေရးသားေသာစာအုပ္မ်ား</a></li>
+            <li><a href="{{ route('user.category.sub', ['category' => 'books', 'sub' => 'book2']) }}">ေဒါက္တာေသာပါက၏ ေနာက္ဆုံးေရးေဆာင္ပါးမ်ား</a></li>
           </ul>
         </li>
         <li><a class="drop" href="parahita1.php">ပရဟိတအက်ိဳးေဆာင္အဖဲြ႕</a>
@@ -34,7 +34,7 @@
             <li><a href="parahita2.php">ေဇတ၀န္ပညာဒါန အခမဲ့ကြန္ပ်ဴတာသင္တန္းမ်ား</a></li>
           </ul>
         </li>
-        <li><a href="photo.php">ဓာတ္ပုံမွတ္တမ္းမ်ား</a></li>
+        <li><a href="{{route('user.category', ['category' => 'Gallery'])}}">ဓာတ္ပုံမွတ္တမ္းမ်ား</a></li>
         <li><a href="news.php">သတင္းႏွင့္ထုတ္ျပန္ေရးသားခ်က္မ်ား</a></li>
         <li><a href="{{route('user.category', ['category' => 'contact'])}}">ဆက္သြယ္ရန္</a></li>
       </ul>
