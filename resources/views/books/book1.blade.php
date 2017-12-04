@@ -21,18 +21,24 @@
             <h1 align="center"><b><font size="5px">ေဒါက္တာအရွင္ေသာပါက ေရးသားျပဳစုေသာစာအုပ္မ်ား</font></b></h1>
             <h1 align="center">ေဇတ၀န္စာစဥ္စာအုပ္မ်ား</h1>
             <ul class="nospace clear">
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""><center>To Download</center></a></li>
+              @foreach($book1 as $b)
+                @if ($b->feature_photo!="")
+                <li class="one_quarter first">
+                  <a href="#">
+                      <img src="{{ asset('upload/posts/'.$b->feature_photo) }}" alt="">
+                      <center>To Download</center>
+                  </a>
+                </li> 
+                @else
+                <li class="one_quarter first">
+                  <a href="" title="">
+                      <img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                      <center>To Download</center>
+                  </a>
+                </li>
+                @endif
+                
+              @endforeach
             </ul>
             <figcaption>Gallery Description Goes Here</figcaption>
           </figure>

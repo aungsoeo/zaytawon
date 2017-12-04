@@ -21,8 +21,8 @@
           <figure>
             <header class="heading">ဓာတ္ပုံမွတ္တမ္းမ်ား</header>
             <ul class="nospace clear">
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
+              <li class="one_quarter first"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""></a></li>
+              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""></a></li>
               <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
               <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
               <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>

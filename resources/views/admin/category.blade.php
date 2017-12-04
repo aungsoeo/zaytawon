@@ -3,6 +3,13 @@
 @section('styles')
 @parent
 <!-- your custom css here -->
+<style type="text/css">
+.alert-success{
+  display: block;
+  background: #efefef;
+  color: green;
+}
+</style>
 @endsection
 
 @section('content')
@@ -14,8 +21,13 @@
 				<h1 class="page-title txt-color-blueDark"><i class="fa fa-list-ul"></i> Category List</h1>
 			</div>	
 		</div>
-
-
+		 <!-- for success message -->
+	        @if ($message = Session::get('success'))
+	          <div class="alert alert-success">
+	              <p>{{ $message }}</p>
+	          </div>
+	         @endif			
+								
 		<div class="row">
 			<div class="form-group col-md-3">
 				<input type="text" class="form-control" placeholder="Search">				
@@ -40,8 +52,10 @@
 						<br>
 						{!! MyFuncs::getCategory($c->Categories, 1); !!}
 						</td>
-						<td>
-							<!-- <input type="button" class="btn btn-xs btn-info" value="Edit"> <input type="button" class="btn btn-xs btn-danger" value="Delete"> --> 
+						<td>							
+							<input type="submit" class="btn btn-primary" onclick="window.location.href='{{ route('admin.category.edit',$c->id) }}'" value="Edit">
+							<input type="submit" class="btn btn-danger" onclick="window.location.href='{{ route('admin.category.delete',$c->id)}}'" value="Delete">
+						
 						</td>
 					</tr>						
 					@endforeach
@@ -57,4 +71,7 @@
 @section('scripts')
 @parent
 <!-- your custom script here -->
+<script>
+  $('.alert-success').fadeIn().delay(1000).fadeOut();
+</script>
 @endsection

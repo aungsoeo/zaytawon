@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'www.baho.com') }}</title>
-
+    <title>ZAYTAWON</title>
+    <link rel="shortcut icon" href="{{ asset('/favicon.png') }}" type="image/png">
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 
@@ -264,7 +264,7 @@
     <div class="login-info">
       <span> <!-- User image size is adjusted inside CSS, it should stay as it --> 
         <a href="{{ route('admin.index') }}">
-          <img src="{{ asset('images/logo.jpeg') }}">
+          <img src="{{ asset('images/logo.png') }}">
           <span style="">
             Admin
           </span>

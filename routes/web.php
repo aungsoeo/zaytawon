@@ -24,6 +24,10 @@ Route::group(['prefix' => 'admin'], function(){
 
 		Route::post('/category/create', ['as' => 'admin.category.store', 'uses' => 'CategoryController@store']);
 
+		Route::post('/category/{id}/edit', ['as' => 'admin.category.edit', 'uses' => 'CategoryController@update']);
+
+		Route::get('/category/{id}/delete', ['as' => 'admin.category.delete', 'uses' => 'CategoryController@delete']);
+
 		Route::get('/post', ['as' => 'admin.post', 'uses' => 'PostController@index']);
 
 		Route::get('/post/create', ['as' => 'admin.post.create', 'uses' => 'PostController@create']);

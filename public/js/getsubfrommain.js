@@ -1,4 +1,4 @@
-var url = "/baho/public/admin/";
+var url = "/zaytawon/public/admin/";
 $('#ctr_parent_id').change(function(){
 	$.ajax({
 		url : url+'post/getsub',
