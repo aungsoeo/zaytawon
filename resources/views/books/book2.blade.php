@@ -21,25 +21,26 @@
           <figure>
             <header class="heading">ေဒါက္တာေသာပါက၏ ေနာက္ဆုံးေရးေဆာင္ပါးမ်ား</header>
             <ul class="nospace clear">
-              <li class="one_quarter first"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter first"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter first"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""><center>To Download</center></a></li>
+              @foreach($book2 as $b)
+                <li class="one_quarter " >
+                  <a href="#">
+                      @if ($b->feature_photo!="")
+                        <img src="{{ asset('upload/posts/'.$b->feature_photo) }}" alt="" style="width: 155px; height: 155px;">
+                      @else
+                        <img src="{{asset('images/demo/gallery/01.png')}}" alt="" style="width: 155px; height: 155px;">
+                      @endif
+                      <center>To Download</center>
+                  </a>
+                </li> 
+              @endforeach 
             </ul>
             <figcaption>Gallery Description Goes Here</figcaption>
           </figure>
         </div>
+        {{$book2->render()}}
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
-        <nav class="pagination">
+<!--         <nav class="pagination">
           <ul>
             <li><a href="#">&laquo; Previous</a></li>
             <li><a href="#">1</a></li>
@@ -54,7 +55,7 @@
             <li><a href="#">15</a></li>
             <li><a href="#">Next &raquo;</a></li>
           </ul>
-        </nav>
+        </nav> -->
         <!-- ################################################################################################ -->
       </div>
         <!-- ################################################################################################ -->
