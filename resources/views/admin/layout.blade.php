@@ -62,7 +62,7 @@
     <div id="logo-group">
 
       <!-- PLACE YOUR LOGO HERE -->
-      <span id="logo"> <center>Baho</center> </span>
+      <span id="logo"> <center>Zaytawon</center> </span>
       <!-- END LOGO PLACEHOLDER -->
 
       <!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
@@ -339,7 +339,7 @@
   <div class="page-footer">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
-        <span class="txt-color-white">Baho <span class="hidden-xs"> - Administration Management System</span> © 2017-2018</span>
+        <span class="txt-color-white">Zaytawon <span class="hidden-xs"> - Administration Management System</span> © 2017-2018</span>
       </div>
 
       <div class="col-xs-6 col-sm-6 text-right hidden-xs">
