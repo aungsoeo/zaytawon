@@ -60,7 +60,7 @@ class PostController extends Controller
         }
 
         $posts = $posts->orderby('updated_at', 'desc')->paginate(12);
-        // var_dump($posts);
+        // dd($posts);exit();
         $data['donor'] = Post::where('main_category_id',39)->orderby('id', 'desc')->limit(10)->get();
 
         $data['founders'] = Post::where('main_category_id',1)->where('sub_category_id',3)->orderby('id', 'desc')->limit(3)->get();
@@ -73,6 +73,14 @@ class PostController extends Controller
 
         $data['book1'] = Post::where('main_category_id',4)->where('sub_category_id',5)->orderby('id', 'desc')->paginate(12);
 
+        $data['book2'] = Post::where('main_category_id',4)->where('sub_category_id',6)->orderby('id', 'desc')->paginate(12);
+
+        $data['parahita_gp'] = Post::where('main_category_id',9)->where('sub_category_id',11)->orderby('id', 'desc')->get();
+
+        $data['pyinnyardarna'] = Post::where('main_category_id',9)->where('sub_category_id',10)->orderby('id', 'desc')->get();
+
+         $data['rule'] = Post::where('main_category_id',9)->where('sub_category_id',19)->orderby('id', 'desc')->get();
+
         $view = str_replace(' ', '', $category.$subview);
         // echo $view;
         // // // echo "<br>";
@@ -84,7 +92,12 @@ class PostController extends Controller
                 'thatharnar1'=>$data['thatharnar1'],
                 'thatharnar2'=>$data['thatharnar2'],
                 'parahita_process'=>$data['parahita_process'],
-                'book1'=>$data['book1']
+                'book1'=>$data['book1'],
+                'book2'=>$data['book2'],
+                'parahita_gp'=>$data['parahita_gp'],
+                'pyinnyardarna'=>$data['pyinnyardarna'] ,
+                'rule'=>$data['rule'] 
+
             ]);
     }
 

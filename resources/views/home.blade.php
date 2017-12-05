@@ -62,13 +62,13 @@
         <article>
           <h2 align="center"><b><font size="5px">ပဓာနနာယကဆရာေတာ္</font></b></h2>
           <h2 align="center">{{$f->title}}</h2>
-          <p>{{$f->short_description}}.</p>
-          <p class="btmspace-30">{{$f->detail_description}}</p>
+          <p>{!!$f->short_description!!}.</p>
+          <p class="btmspace-30">{!! $f->detail_description!!}</p>
           <p><a class="btn" href="#">Luctus purus nibh</a></p>
         </article>
       </div>
       <div class="one_half"><a href="#">
-        <img src="{{ asset('upload/posts/'.$f->feature_photo) }}" alt="ပဓာနနာယကဆရာေတာ္"></a>
+        <img src="{{ asset('upload/posts/'.$f->feature_photo) }}" alt="ပဓာနနာယကဆရာေတာ္" style="width:80%; height: 80%;"></a>
       </div>
       @endforeach
       <!-- ################################################################################################ -->

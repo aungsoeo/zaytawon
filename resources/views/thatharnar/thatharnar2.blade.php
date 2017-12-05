@@ -15,10 +15,10 @@
       <div class="content three_quarter first"> 
         <!-- ################################################################################################ -->
         @foreach($thatharnar2 as $t)
-        <h1 align="center"><b><font size="5px">{{$t->title}}</font></b></h1>
+        <h1 align="center"><b><font size="5px">{!!$t->title!!}</font></b></h1>
         <!-- <img class="imgr borderedbox inspace-5" src="images/demo/imgr.gif" alt=""> -->
-        <p align="justify">{{$t->short_description}}</p>
-        <!-- <p>{{$t->short_description}}</p> -->
+        <p align="justify">{!!$t->short_description!!}</p>
+        <p>{!!$t->detail_description!!}</p>
         <hr><br>
         @endforeach
         <h1 align="center">သင္တန္း၀င္ခြင့္ေလွ်ာက္လႊာ</h1>

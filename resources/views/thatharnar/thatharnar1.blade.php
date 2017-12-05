@@ -17,17 +17,23 @@
         <!-- ################################################################################################ -->
         <h1 align="center"><b><font size="5px">သာသနာျပဳလုပ္ငန္းစီမံကိန္းမ်ား</font></b></h1>    
         @foreach($thatharnar1 as $t)
+           @if ($t->feature_photo!="")
           <img class="imgr borderedbox inspace-5" src="{{ asset('upload/posts/'.$t->feature_photo) }}" alt="သာသနာျပဳလုပ္ငန္းစီမံကိန္းမ်ား" style="width: 137px; height: 137px;">
-          <p>{{$t->title}}</p>
-          <p>{{$t->short_description}}</p>
+          @endif
+          <p>{!!$t->title!!}</p>
+          <p>{!!$t->short_description!!}</p>
+          <p>{!!$t->detail_description!!}</p>
           <hr><br>
         @endforeach
 
         <h1>ပရဟိတလုပ္ငန္းစဥ္မ်ား</h1>
         @foreach($parahita_process as $p)
-        <img class="imgl borderedbox inspace-5" src="{{asset('upload/posts/'.$p->feature_photo) }}" alt="ပရဟိတလုပ္ငန္းစဥ္မ်ား" style="width: 137px; height: 137px;">
-        <p>{{$p->title}}</p>
-        <p>{{$p->short_description}}</p>
+         @if ($p->feature_photo!="")
+          <img class="imgl borderedbox inspace-5" src="{{asset('upload/posts/'.$p->feature_photo) }}" alt="ပရဟိတလုပ္ငန္းစဥ္မ်ား" style="width: 137px; height: 137px;">
+          @endif
+        <p>{!!$p->title!!}</p>
+        <p>{!!$p->short_description!!}</p>
+        <p>{!!$p->detail_description!!}</p>
         <hr><br>
         @endforeach
         <!-- ################################################################################################ -->
