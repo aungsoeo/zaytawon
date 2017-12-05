@@ -19,27 +19,22 @@
         <!-- ################################################################################################ -->
         <div id="gallery">
           <figure>
-            <header class="heading">ဓာတ္ပုံမွတ္တမ္းမ်ား</header>
+             <h1 align="center"><b>ဓာတ္ပုံမွတ္တမ္းမ်ား</b></h1>
             <ul class="nospace clear">
-              <li class="one_quarter first"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="{{asset('images/demo/gallery/01.png')}}" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter first"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
-              <li class="one_quarter"><a href="#"><img src="images/demo/gallery/01.png" alt=""></a></li>
+              @foreach($posts as $photo)
+              <li class="one_quarter">
+                <a href="#">
+                  <img src="{{ asset('upload/posts/'.$photo->feature_photo) }}" alt="{{$photo->title}}" style="width: 155px; height: 155px;">
+                </a>
+              </li>
+              @endforeach
             </ul>
             <figcaption>Gallery Description Goes Here</figcaption>
           </figure>
         </div>
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
-        <nav class="pagination">
+        <!-- <nav class="pagination">
           <ul>
             <li><a href="#">&laquo; Previous</a></li>
             <li><a href="#">1</a></li>
@@ -54,7 +49,8 @@
             <li><a href="#">15</a></li>
             <li><a href="#">Next &raquo;</a></li>
           </ul>
-        </nav>
+        </nav> -->
+        {{$posts->render()}}
         <!-- ################################################################################################ -->
       </div>
         <!-- ################################################################################################ -->

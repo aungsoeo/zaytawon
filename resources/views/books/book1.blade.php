@@ -26,9 +26,9 @@
                 <li class="one_quarter " >
                   <a href="#">
                       @if ($b->feature_photo!="")
-                        <img src="{{ asset('upload/posts/'.$b->feature_photo) }}" alt="">
+                        <img src="{{ asset('upload/posts/'.$b->feature_photo) }}" alt="{{$b->title}}" style="width: 155px; height: 155px;">
                       @else
-                        <img src="{{asset('images/demo/gallery/01.png')}}" alt="">
+                        <img src="{{asset('images/demo/gallery/01.png')}}" alt="no_upload_photo" style="width: 155px; height: 155px;">
                       @endif
                       <center>To Download</center>
                   </a>
