@@ -14,11 +14,18 @@
       <!-- ################################################################################################ -->
       <div class="content three_quarter first"> 
         <!-- ################################################################################################ -->
-        <h1 align="center"><b><font size="5px">ေဇတ၀န္ပညာဒါန အခမဲ့ကြန္ပ်ဴတာသင္တန္းမ်ား</font></b></h1>
-        <p>Aliquatjusto quisque nam consequat doloreet vest orna partur scetur portortis nam. Metadipiscing eget facilis elit sagittis felisi eger id justo maurisus convallicitur.</p>
-        <h1 align="center">သင္တန္းသားမ်ားလုိက္နာရန္ စည္မ်ဥ္း</h1>
-        <p>Dapiensociis <a href="#">temper donec auctortortis cumsan</a> et curabitur condis lorem loborttis leo. Ipsumcommodo libero nunc at in velis tincidunt pellentum tincidunt vel lorem.</p>
+        @foreach($pyinnyardarna as $e)
+          <h1 align="center"><b><font size="5px">{{$e->title}}</font></b></h1>
+          <p>{{$e->short_description}}</p>
+          <p>{!! $e->detail_description !!}</p>
+          <hr><br>
+        @endforeach
+        @foreach($rule as $r)
+        <h1 align="center">{{$r->title}}</h1>
+        <p>{{ $r->short_description }}</p>
+        <p>{!! $r->detail_description !!}</p>
         <hr><br>
+        @endforeach
         <h1 align="center">ကြန္ပ်ဴတာသင္တန္း ၀င္ခြင့္ေလွ်ာက္ထားလႊာပုံစံ</h1>
         <div id="comments">
           <form action="#" method="post">
