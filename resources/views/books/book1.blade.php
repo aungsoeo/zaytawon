@@ -23,7 +23,7 @@
             <ul class="nospace clear">
               @foreach($book1 as $b)
                 @if ($b->feature_photo!="")
-                <li class="one_quarter first">
+                <li class="one_quarter first" style="float: left;">
                   <a href="#">
                       <img src="{{ asset('upload/posts/'.$b->feature_photo) }}" alt="">
                       <center>To Download</center>
@@ -37,15 +37,15 @@
                   </a>
                 </li>
                 @endif
-                
-              @endforeach
+              @endforeach         
             </ul>
             <figcaption>Gallery Description Goes Here</figcaption>
           </figure>
         </div>
+         {{$book1->render()}}
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
-        <nav class="pagination">
+        <!-- <nav class="pagination">
           <ul>
             <li><a href="#">&laquo; Previous</a></li>
             <li><a href="#">1</a></li>
@@ -60,7 +60,7 @@
             <li><a href="#">15</a></li>
             <li><a href="#">Next &raquo;</a></li>
           </ul>
-        </nav>
+        </nav> -->
         <!-- ################################################################################################ -->
       </div>
         <!-- ################################################################################################ -->
