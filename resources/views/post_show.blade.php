@@ -47,26 +47,7 @@
       <!-- ################################################################################################ -->
       <div class="sidebar one_quarter"> 
         <!-- ################################################################################################ -->
-        <div class="sdb_holder">
-          <a href="education.php"><h6><i class="icon circle fa fa-bank"></i>&nbsp;စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ</h6></a>
-          <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-        </div>
-        <hr>
-        <br>
-        <div class="sdb_holder">
-          <article>
-            <a href="donars.php"><h6><i class="icon circle fa fa-book"></i> &nbsp;ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္မ်ား</h6></a>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-          </article>
-        </div>
-        <hr>
-        <br>
-        <div class="sdb_holder">
-          <article>
-            <a href="people.php"><h6><i class="fa fa-location-arrow"></i> &nbsp;တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား</h6></a>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-          </article>
-        </div>
+        @include('sidebar')
         <!-- ################################################################################################ -->
       </div>
       <!-- ################################################################################################ -->

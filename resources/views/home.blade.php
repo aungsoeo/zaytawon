@@ -30,19 +30,19 @@
       <div class="one_third first">
         <article>
           <a href="{{route('user.category', ['category' => 'education'])}}"><h3 class="font-x1"><i class="icon circle fa fa-bank"></i> &nbsp; စာသင္တုိက္ စာသင္သားမ်ားဆုိင္ရာ</h3></a>
-          <p class="nospace">Quisque mollis nisl a hendrerit eleifend cum sociis natoque penatibus et magnis dis parturient <a href="#">read more &raquo;</a></p>
+          <p class="nospace">စာသင္တုိက္ စာသင္သားမ်ားဆုိင္ရာ အေၾကာင္းအရာမ်ားကို ၾကည့္ရွုရန္......<a href="{{route('user.category', ['category' => 'education'])}}">read more &raquo;</a></p>
         </article>
       </div>
       <div class="one_third">
         <article>
           <a href="{{route('user.category', ['category' => 'donor'])}}"><h3 class="font-x1"><i class="icon circle fa fa-book"></i> &nbsp; ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္မ်ား</h3></a>
-          <p class="nospace">Praesent vehicula ipsum erat at congue lorem placerat egestas nulla gravida vitae purus sit amet <a href="#">read more &raquo;</a></p>
+          <p class="nospace">ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္မ်ား ကို ၾကည့္ရွုရန္..<a href="{{route('user.category', ['category' => 'donor'])}}">read more &raquo;</a></p>
         </article>
       </div>
       <div class="one_third">
         <article>
           <a href="{{route('user.category', ['category' => 'people'])}}"><h3 class="font-x1"><i class="fa fa-location-arrow"></i> &nbsp; တရားပဲြပင့္ေလွ်ာက္လုိသူမ်ား</h3></a>
-          <p class="nospace">Nunc et bibendum turpis mauris porta vehicula ipsum at maximus felis dapibus cras vitae dolor <a href="#">read more &raquo;</a></p>
+          <p class="nospace">တရားပြဲပင့္ေလ်ာက္လိုသူမ်ား စာရင္းၾကည့္ရွုရန္.....<br> <a href="#">read more &raquo;</a></p>
         </article>
       </div>
       <!-- ################################################################################################ -->

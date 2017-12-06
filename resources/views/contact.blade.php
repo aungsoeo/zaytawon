@@ -3,6 +3,13 @@
 @section('styles')
 @parent
 <!-- your custom css here -->
+<style type="text/css">`
+.alert-success{
+  display: block;
+  background: #efefef;
+  color: green;
+}
+</style>
 @endsection
 
 @section('content')
@@ -14,16 +21,33 @@
       <!-- ################################################################################################ -->
       <div class="content three_quarter first"> 
         <!-- ################################################################################################ -->
+        <!-- for success message -->
+        @if ($message = Session::get('success'))
+          <div class="alert-success">
+              <p >{{ $message }}</p>
+          </div>
+         @endif
         <div id="comments">
           <h2>Write A Comment</h2>
-          <form action="#" method="post">
+          <form method="POST" action="{{ route('contact.store') }}">
+            {!! csrf_field() !!}
             <div class="one_third first">
               <label for="name">Name <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <input type="text" name="name" id="name" value="old('name') }}" size="22">
+              @if ($errors->has('name'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('name') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
               <label for="email">Mail <span>*</span></label>
-              <input type="text" name="email" id="email" value="" size="22">
+              <input type="email" name="email" id="email" value="old('email') }}" size="22">
+              @if ($errors->has('email'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
               <label for="url">Website</label>
@@ -45,26 +69,7 @@
       <!-- ################################################################################################ -->
       <div class="sidebar one_quarter"> 
         <!-- ################################################################################################ -->
-         <div class="sdb_holder">
-          <a href="education.php"><h6><i class="icon circle fa fa-bank"></i>&nbsp;စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ</h6></a>
-          <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-        </div>
-        <hr>
-        <br>
-        <div class="sdb_holder">
-          <article>
-            <a href="donars.php"><h6><i class="icon circle fa fa-book"></i> &nbsp;ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္မ်ား</h6></a>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-          </article>
-        </div>
-        <hr>
-        <br>
-        <div class="sdb_holder">
-          <article>
-            <a href="people.php"><h6><i class="fa fa-location-arrow"></i> &nbsp;တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား</h6></a>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-          </article>
-        </div>
+        @include('sidebar')
         <!-- ################################################################################################ -->
       </div>
       <!-- ################################################################################################ -->

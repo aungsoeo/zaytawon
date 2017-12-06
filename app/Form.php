@@ -7,20 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 class Form extends Model
 {
     protected $fillable = array(
-    			'name',
-    			'father_name',
-    			'nrc',
-    			'phone_no', 
-                'address',
-                'organization',   			
-    			'gender',
-    			'monastery_name',
-                'is_party',
-                'education'
+    		'degree',
+            'f_name',
+            'thatharnar_no',
+            'birth_date',
+            'age',
+            'war_taw',
+            'school_address',
+            'phone',
+            'email',
+            'passed_date'
 
     	);
 
-    protected $table = 'registration_form';
+    protected $table = 'monk_registration_form';
 
     
 }

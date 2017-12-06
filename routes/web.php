@@ -108,3 +108,7 @@ Route::get('/download/{id}', [
 Route::get('/view/{attach_file}', ['as' => 'viewfile', 'uses' => 'PostController@viewfile']);
 
 Route::get('get-video/{video}', 'PostController@getVideo')->name('getVideo');
+
+Route::post('/contact/store',['as'=>'contact.store', 'uses'=>'PostController@contact_store']);
+
+Route::post('/monk_student/store',['as'=>'monk_student.store', 'uses'=>'PostController@monk_student_store']);

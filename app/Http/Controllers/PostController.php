@@ -81,6 +81,10 @@ class PostController extends Controller
 
          $data['rule'] = Post::where('main_category_id',9)->where('sub_category_id',19)->orderby('id', 'desc')->get();
 
+        $data['donors'] = Post::where('main_category_id',16)->orderby('id', 'desc')->limit(10)->get();
+
+        $data['people'] = Post::where('main_category_id',17)->orderby('id', 'desc')->limit(10)->get();
+
         $view = str_replace(' ', '', $category.$subview);
         // echo $view;
         // // // echo "<br>";
@@ -96,7 +100,9 @@ class PostController extends Controller
                 'book2'=>$data['book2'],
                 'parahita_gp'=>$data['parahita_gp'],
                 'pyinnyardarna'=>$data['pyinnyardarna'] ,
-                'rule'=>$data['rule'] 
+                'rule'=>$data['rule'] ,
+                'donors'=>$data['donors'],
+                'people'=>$data['people']
 
             ]);
     }
@@ -106,14 +112,15 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $data['donor'] = Post::where('main_category_id',39)->orderby('id', 'desc')->limit(3)->get();
-        $data['process'] = Post::where('main_category_id',40)->orderby('id', 'desc')->limit(3)->get();
-        $data['founders'] = Post::where('main_category_id',41)->orderby('id', 'desc')->limit(3)->get();
+        $data['donors'] = Post::where('main_category_id',16)->orderby('id', 'desc')->limit(10)->get();
+
+        $data['people'] = Post::where('main_category_id',17)->orderby('id', 'desc')->limit(10)->get();
+
         return view('post_show',[
                 'post'=>$post,
-                'donors'=>$data['donor'],
-                'process'=>$data['process'],
-                'founders'=>$data['founders']
+                'donors'=>$data['donors'],
+                'people'=>$data['people']
+
             ]);
     }
 
@@ -177,6 +184,7 @@ class PostController extends Controller
         $arr=[
                 'name'=>$request->name,
                 'email'=>($request->email)?$request->email:'',
+                'url'=>($request->url)?$request->url:'',
                 'comment'=>($request->comment)? $request->comment:'',
             ];
 
@@ -187,13 +195,13 @@ class PostController extends Controller
         /**
         if($input['email']!=''){
             Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
-                $m->from('admin@baho.com', 'Baho Admin');
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
                 $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com"), $user->email]);
                 $m->subject('Receiving Mail From Visitor : ' . $user->name);
             });
         }else{
             Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
-                $m->from('admin@baho.com', 'Baho Admin');
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
                 $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com")]);
                 $m->subject('Receiving Mail From Visitor : ' . $user->name);
             });
@@ -248,6 +256,62 @@ class PostController extends Controller
         $response = Response::make($fileContents, 200);
         $response->header('Content-Type', "video/mp4");
         return $response;
+    }
+
+
+    //သင္တန္း၀င္ခြင့္ေလွ်ာက္လႊာ
+    public function monk_student_store(Request $request)
+    {
+                // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'degree' => 'required',
+            'f_name' => 'required',
+            'birth_date'=>'required',
+            'age'=>'required',
+            'phone'=>'required',
+            'email'=> 'required|email|unique:contact_form',
+            'passed_date'=>'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+              ->withInput()
+              ->withErrors($validator);
+        }
+
+        $arr=[
+                'degree' => $request->degree,
+                'f_name' => $request->f_name,
+                'thatharnar_no'=>($request->thatharnar_no)?$request->thatharnar_no:'',
+                'birth_date'=>$request->birth_date,
+                'age'=>$request->age,
+                'war_taw'=>$request->war_taw,
+                'school_address'=>$request->school_address,
+                'phone'=>$request->phone,
+                'email'=> $request->email,
+                'passed_date'=>$request->passed_date
+            ];
+
+        // dd($arr);
+        $input['email']=($request->email)?$request->email:'';
+        $user=Form::create($arr);
+        /**tempory commit out **/
+        /**
+        if($input['email']!=''){
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com"), $user->email]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        }else{
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com")]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        } **/
+
+        return redirect()->back()->with('success','Thanks for contacting us!');
     }
 
 

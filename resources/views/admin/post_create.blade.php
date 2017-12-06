@@ -170,8 +170,7 @@
                     <label class="col-md-2 control-label">Custom Field</label>
 
                     <div class="col-md-9">
-                        <textarea class="form-control" name="custom_field5">{{ old('custom_field5') }}</textarea>
-
+                         <input class="form-control" type="date" name="custom_field5" value="{{ old('custom_field5') }}">
                     </div>
                 </div>
 

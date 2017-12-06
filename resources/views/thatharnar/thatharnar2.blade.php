@@ -25,46 +25,49 @@
         <p>အေၾကာင္းအရာ။ ။သင္တန္းတက္ေရာက္ခြင့္ျပဳပါရန္ ေလွ်ာက္ထားျခင္း။</p>
         <p>ဘုရားတပည့္ေတာ္သည္ ေအာက္ေဖာ္ျပပါ အခ်က္အလက္မ်ား ကိုယ္တုိင္ျဖည့္စြက္၍ သင္တန္းတက္ေရာက္ခြင့္ျပဳပါရန္ မိမိဆႏၵ အရ ေလွ်ာက္ထားအပ္ပါသည္။</p>
         <div id="comments">
-          <form action="#" method="post">
+          <form method="POST" action="{{ route('monk_student.store') }}">
+            {!! csrf_field() !!}
             <div class="one_third first">
-              <label for="name">သင္တန္းသားဘြဲ႔ေတာ္ <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <label for="degree">သင္တန္းသားဘြဲ႔ေတာ္ <span>*</span></label>
+              <input type="text" name="degree" id="degree" value="{{old('degree') }}" size="22">
             </div>
             <div class="one_third">
-              <label for="email">အဖအမည္  <span>*</span></label>
-              <input type="text" name="email" id="email" value="" size="22">
+              <label for="name">အဖအမည္  <span>*</span></label>
+              <input type="text" name="f_name" id="f_name" value="{{old('f_name')}}" size="22">
             </div>
             <div class="one_third">
-              <label for="url">သာသနာ၀င္မွတ္တမ္းအမွတ္ </label>
-              <input type="text" name="url" id="url" value="" size="22">
+              <label for="thatharnar_no">သာသနာ၀င္မွတ္တမ္းအမွတ္ </label>
+              <input type="text" name="thatharnar_no" id="thatharnar_no" value="{{old('thatharnar_no')}}" size="22">
             </div>
             <div class="one_third first">
-              <label for="name">ေမြးသကၠရာဇ္ <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <label for="birth_date">ေမြးသကၠရာဇ္ <span>*</span></label>
+               <input type="date" name="birth_date" value="{{old('birth_date')}}" size="22">
             </div>
             <div class="one_third">
-              <label for="email">အသက္  <span>*</span></label>
-              <input type="text" name="email" id="email" value="" size="22">
+              <label for="age">အသက္  <span>*</span></label>
+              <input type="text" name="age" id="age" value="{{old('age')}}" size="22">
             </div>
             <div class="one_third">
               <label for="url">သိကၡာ </label>
-              <input type="text" name="url" id="url" value="" size="22">
+              <input type="text" name="war_taw" id="war_taw" value="{{old('war_taw')}}" size="22">
             </div>
             <div class="block clear">
-              <label for="comment">ေက်ာင္းတုိက္ႏွင့္ေနရပ္လိပ္စာအျပည့္အစုံ</label>
-              <textarea name="comment" id="comment" cols="25" rows="3"></textarea>
+              <label for="school_address">ေက်ာင္းတုိက္ႏွင့္ေနရပ္လိပ္စာအျပည့္အစုံ</label>
+              <textarea name="school_address" id="school_address" cols="25" rows="3">
+                {{old('school_address')}}
+              </textarea>
             </div>
             <div class="block clear">
-              <label for="name">ဆက္သြယ္ရန္ဖုန္း (Viber ဆက္သြယ္၍ရေသာဖုန္း) <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <label for="phone">ဆက္သြယ္ရန္ဖုန္း (Viber ဆက္သြယ္၍ရေသာဖုန္း) <span>*</span></label>
+              <input type="text" name="phone" id="phone" value="{{old('phone')}}" size="22">
             </div>      
             <div class="block clear">
-              <label for="name">E-mail ႏွင့္ Facebook <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <label for="email">E-mail ႏွင့္ Facebook <span>*</span></label>
+              <input type="email" name="email" id="email" value="{{old('email')}}" size="22">
             </div>
             <div class="block clear">
-              <label for="name">ဓမၼာစရိယဘဲြ႔ရရွိသည့္ ခုႏွစ္သကၠရာဇ္ <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <label for="passed_date">ဓမၼာစရိယဘဲြ႔ရရွိသည့္ ခုႏွစ္သကၠရာဇ္ <span>*</span></label>
+              <input type="date" name="passed_date" id="passed_date" value="{{old('passed_date')}}" size="22">
             </div>
             <div>
               <p>အထက္ပါအေၾကာင္းအရာမ်ားသည္ မွန္ကန္ပါသည္။</p>
@@ -84,26 +87,7 @@
       <!-- ################################################################################################ -->
       <div class="sidebar one_quarter"> 
         <!-- ################################################################################################ -->
-        <div class="sdb_holder">
-          <a href="education.php"><h6><i class="icon circle fa fa-bank"></i>&nbsp;စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ</h6></a>
-          <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-        </div>
-        <hr>
-        <br>
-        <div class="sdb_holder">
-          <article>
-            <a href="donars.php"><h6><i class="icon circle fa fa-book"></i> &nbsp;ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္မ်ား</h6></a>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-          </article>
-        </div>
-        <hr>
-        <br>
-        <div class="sdb_holder">
-          <article>
-            <a href="people.php"><h6><i class="fa fa-location-arrow"></i> &nbsp;တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား</h6></a>
-            <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
-          </article>
-        </div>
+        @include('sidebar')
         <!-- ################################################################################################ -->
       </div>
       <!-- ################################################################################################ -->
