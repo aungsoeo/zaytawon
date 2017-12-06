@@ -14,7 +14,7 @@
       <!-- ################################################################################################ -->
       <div class="content three_quarter first"> 
         <!-- ################################################################################################ -->
-         @foreach($parahita_gp as $p)
+         @foreach($posts as $p)
           <h1 align="center"><b><font size="5px">{{$p->title}}</font></b></h1>
         <!-- <img class="imgr borderedbox inspace-5" src="images/demo/imgr.gif" alt=""> -->
             <center>
@@ -26,7 +26,7 @@
             <p>{!!$p->detail_description!!}</p>
         @endforeach 
         <p></p>
-        
+        {{$posts->render()}}
       
         <!-- ################################################################################################ -->
       </div>

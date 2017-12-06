@@ -16,7 +16,7 @@
       <div class="content three_quarter first"> 
         <!-- ################################################################################################ -->
         <h1 align="center"><b><font size="5px">သာသနာျပဳလုပ္ငန္းစီမံကိန္းမ်ား</font></b></h1>    
-        @foreach($thatharnar1 as $t)
+        @foreach($posts as $t)
            @if ($t->feature_photo!="")
           <img class="imgr borderedbox inspace-5" src="{{ asset('upload/posts/'.$t->feature_photo) }}" alt="သာသနာျပဳလုပ္ငန္းစီမံကိန္းမ်ား" style="width: 137px; height: 137px;">
           @endif

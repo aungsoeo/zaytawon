@@ -21,7 +21,7 @@
           <figure>
             <header class="heading">ေဒါက္တာေသာပါက၏ ေနာက္ဆုံးေရးေဆာင္ပါးမ်ား</header>
             <ul class="nospace clear">
-              @foreach($book2 as $b)
+              @foreach($posts as $b)
                 <li class="one_quarter " >
                   <a href="#">
                       @if ($b->feature_photo!="")
@@ -37,7 +37,7 @@
             <figcaption>Gallery Description Goes Here</figcaption>
           </figure>
         </div>
-        {{$book2->render()}}
+        {{$posts->render()}}
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
 <!--         <nav class="pagination">

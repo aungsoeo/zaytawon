@@ -14,7 +14,7 @@
       <!-- ################################################################################################ -->
       <div class="content three_quarter first"> 
         <!-- ################################################################################################ -->
-        @foreach($thatharnar2 as $t)
+        @foreach($posts as $t)
         <h1 align="center"><b><font size="5px">{!!$t->title!!}</font></b></h1>
         <!-- <img class="imgr borderedbox inspace-5" src="images/demo/imgr.gif" alt=""> -->
         <p align="justify">{!!$t->short_description!!}</p>

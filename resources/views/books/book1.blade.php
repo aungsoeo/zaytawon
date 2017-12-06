@@ -21,7 +21,7 @@
             <h1 align="center"><b><font size="5px">ေဒါက္တာအရွင္ေသာပါက ေရးသားျပဳစုေသာစာအုပ္မ်ား</font></b></h1>
             <h1 align="center">ေဇတ၀န္စာစဥ္စာအုပ္မ်ား</h1>
             <ul class="nospace clear">
-              @foreach($book1 as $b)
+              @foreach($posts as $b)
                 
                 <li class="one_quarter " >
                   <a href="#">
@@ -38,7 +38,7 @@
             <figcaption>Gallery Description Goes Here</figcaption>
           </figure>
         </div>
-         {{$book1->render()}}
+         {{$posts->render()}}
         <!-- ################################################################################################ -->
         <!-- ################################################################################################ -->
         <!-- <nav class="pagination">

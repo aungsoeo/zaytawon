@@ -57,7 +57,7 @@
   <div class="spacer">
     <div class="container clear"> 
       <!-- ################################################################################################ -->
-      @foreach($founders as $f)
+      @foreach($posts as $f)
       <div class="one_half first">
         <article>
           <h2 align="center"><b><font size="5px">ပဓာနနာယကဆရာေတာ္</font></b></h2>

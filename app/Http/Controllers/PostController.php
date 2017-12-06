@@ -60,24 +60,21 @@ class PostController extends Controller
         }
 
         $posts = $posts->orderby('updated_at', 'desc')->paginate(12);
-        // dd($posts);exit();
-        $data['donor'] = Post::where('main_category_id',39)->orderby('id', 'desc')->limit(10)->get();
+        // $data['founders'] = Post::where('main_category_id',1)->where('sub_category_id',3)->orderby('id', 'desc')->limit(3)->get();
 
-        $data['founders'] = Post::where('main_category_id',1)->where('sub_category_id',3)->orderby('id', 'desc')->limit(3)->get();
-
-        $data['thatharnar1'] = Post::where('main_category_id',12)->where('sub_category_id',13)->orderby('id', 'desc')->limit(5)->get();
+        // $data['thatharnar1'] = Post::where('main_category_id',12)->where('sub_category_id',13)->orderby('id', 'desc')->limit(5)->get();
 
         $data['parahita_process'] = Post::where('main_category_id',12)->where('sub_category_id',18)->orderby('id', 'desc')->limit(5)->get();
 
-        $data['thatharnar2'] = Post::where('main_category_id',12)->where('sub_category_id',14)->orderby('id', 'desc')->limit(5)->get();
+        // $data['thatharnar2'] = Post::where('main_category_id',12)->where('sub_category_id',14)->orderby('id', 'desc')->limit(5)->get();
 
-        $data['book1'] = Post::where('main_category_id',4)->where('sub_category_id',5)->orderby('id', 'desc')->paginate(12);
+        // $data['book1'] = Post::where('main_category_id',4)->where('sub_category_id',5)->orderby('id', 'desc')->paginate(12);
 
-        $data['book2'] = Post::where('main_category_id',4)->where('sub_category_id',6)->orderby('id', 'desc')->paginate(12);
+        // $data['book2'] = Post::where('main_category_id',4)->where('sub_category_id',6)->orderby('id', 'desc')->paginate(12);
 
-        $data['parahita_gp'] = Post::where('main_category_id',9)->where('sub_category_id',11)->orderby('id', 'desc')->get();
+        // $data['parahita_gp'] = Post::where('main_category_id',9)->where('sub_category_id',11)->orderby('id', 'desc')->get();
 
-        $data['pyinnyardarna'] = Post::where('main_category_id',9)->where('sub_category_id',10)->orderby('id', 'desc')->get();
+        // $data['pyinnyardarna'] = Post::where('main_category_id',9)->where('sub_category_id',10)->orderby('id', 'desc')->get();
 
          $data['rule'] = Post::where('main_category_id',9)->where('sub_category_id',19)->orderby('id', 'desc')->get();
 
@@ -92,14 +89,13 @@ class PostController extends Controller
 
         return view($view,[
                 'posts'=>$posts,
-                'founders'=>$data['founders'],
-                'thatharnar1'=>$data['thatharnar1'],
-                'thatharnar2'=>$data['thatharnar2'],
+                // 'thatharnar1'=>$data['thatharnar1'],
+                // 'thatharnar2'=>$data['thatharnar2'],
                 'parahita_process'=>$data['parahita_process'],
-                'book1'=>$data['book1'],
-                'book2'=>$data['book2'],
-                'parahita_gp'=>$data['parahita_gp'],
-                'pyinnyardarna'=>$data['pyinnyardarna'] ,
+                // 'book1'=>$data['book1'],
+                // 'book2'=>$data['book2'],
+                // 'parahita_gp'=>$data['parahita_gp'],
+                // 'pyinnyardarna'=>$data['pyinnyardarna'] ,
                 'rule'=>$data['rule'] ,
                 'donors'=>$data['donors'],
                 'people'=>$data['people']

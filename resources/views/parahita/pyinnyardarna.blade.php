@@ -14,7 +14,7 @@
       <!-- ################################################################################################ -->
       <div class="content three_quarter first"> 
         <!-- ################################################################################################ -->
-        @foreach($pyinnyardarna as $e)
+        @foreach($posts as $e)
           <h1 align="center"><b><font size="5px">{{$e->title}}</font></b></h1>
           <p>{{$e->short_description}}</p>
           <p>{!! $e->detail_description !!}</p>
