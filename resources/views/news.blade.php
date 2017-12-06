@@ -16,53 +16,34 @@
       <div class="content three_quarter first"> 
         <!-- ################################################################################################ -->
         <div id="comments">
-          <h2>သတင္းႏွင့္ထုတ္ျပန္ေရးသားခ်က္မ်ား</h2>
+          <h2 align="center">သတင္းႏွင့္ထုတ္ျပန္ေရးသားခ်က္မ်ား</h2>
           <ul>
+            @foreach($posts as $new)
             <li>
               <article>
                 <header>
-                  <figure class="avatar"><img src="{{asset('images/demo/avatar.png')}}" alt=""></figure>
+                  <figure class="avatar">
+                     <a href="{{ route('post.show',$new->id) }}">
+                        <img src="{{ asset('upload/posts/'.$new->feature_photo) }}" alt="{{$new->title}}" style="width: 150px; height: 150px;">
+                    </a>
+                  </figure>
                   <address>
-                  By <a href="#">A Name</a>
+                    <a href="{{ route('post.show',$new->id) }}">{{$new->title}}</a>
                   </address>
-                  <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
+                  <time datetime="2045-04-06T08:15+00:00">
+                    {{ date_format($new->created_at,'d F Y') }}
+                  </time>
                 </header>
                 <div class="comcont">
-                  <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
+                  <p>{!! $new->short_description !!}</p>
+                  <a href="{{ route('post.show',$new->id) }}">Read more</a>
                 </div>
               </article>
             </li>
-            <li>
-              <article>
-                <header>
-                  <figure class="avatar"><img src="{{asset('images/demo/avatar.png')}}" alt=""></figure>
-                  <address>
-                  By <a href="#">A Name</a>
-                  </address>
-                  <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
-                </header>
-                <div class="comcont">
-                  <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-                </div>
-              </article>
-            </li>
-            <li>
-              <article>
-                <header>
-                  <figure class="avatar"><img src="{{asset('images/demo/avatar.png')}}" alt=""></figure>
-                  <address>
-                  By <a href="#">A Name</a>
-                  </address>
-                  <time datetime="2045-04-06T08:15+00:00">Friday, 6<sup>th</sup> April 2045 @08:15:00</time>
-                </header>
-                <div class="comcont">
-                  <p>This is an example of a comment made on a post. You can either edit the comment, delete the comment or reply to the comment. Use this as a place to respond to the post or to share what you are thinking.</p>
-                </div>
-              </article>
-            </li>
+            @endforeach
           </ul>
           </div>
-      
+      {!! $posts->render()!!}
         <!-- ################################################################################################ -->
       </div>
       <!-- ################################################################################################ -->
