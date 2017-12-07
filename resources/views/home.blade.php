@@ -8,15 +8,17 @@
 @section('content')
 <!-- ################################################################################################ -->
 <div class="wrapper">
-  <div id="bgslideshow">
+  <div id="bgslideshow">        
     <ul>
       <!-- ################################################################################################ -->
-      <li class="bgded" style="background-image:url({{ asset('images/demo/slider/01.png') }})"><em>text 1</em></li>
-      <li class="bgded" style="background-image:url({{ asset('images/demo/slider/02.png') }})"><em>text 2</em></li>
+      @foreach($slider as $s)
+      <li class="bgded" style="background-image:url({{ asset('upload/posts/'.$s->feature_photo) }}); background-size: 100% 100%;"><em style="font-size: 40px !important;">{{$s->title}}</em></li>
+      @endforeach
+    <!--   <li class="bgded" style="background-image:url({{ asset('images/demo/slider/02.png') }})"><em>text 2</em></li>
       <li class="bgded" style="background-image:url({{ asset('images/demo/slider/03.png') }})"><em>text 3</em></li>
       <li class="bgded" style="background-image:url({{ asset('images/demo/slider/01.png') }})"><em>text 4</em></li>
       <li class="bgded" style="background-image:url({{ asset('images/demo/slider/02.png') }})"><em>text 5</em></li>
-      <li class="bgded" style="background-image:url({{ asset('images/demo/slider/03.png') }})"><em>text 6</em></li>
+      <li class="bgded" style="background-image:url({{ asset('images/demo/slider/03.png') }})"><em>text 6</em></li> -->
       <!-- ################################################################################################ -->
     </ul>
   </div>
@@ -57,14 +59,13 @@
   <div class="spacer">
     <div class="container clear"> 
       <!-- ################################################################################################ -->
-      @foreach($posts as $f)
+      @foreach($founders as $f)
       <div class="one_half first">
         <article>
           <h2 align="center"><b><font size="5px">ပဓာနနာယကဆရာေတာ္</font></b></h2>
-          <h2 align="center">{{$f->title}}</h2>
+          <h2 align="center">{!!$f->title!!}</h2>
           <p>{!!$f->short_description!!}.</p>
-          <p class="btmspace-30">{!! $f->detail_description!!}</p>
-          <p><a class="btn" href="#">Luctus purus nibh</a></p>
+          <p><a class="btn" href="{{route('post.show',$f->id)}}">Read More</a></p>
         </article>
       </div>
       <div class="one_half"><a href="#">
@@ -77,5 +78,18 @@
   </div>
 </div>
 <!-- ################################################################################################ -->
-
+<?php
+$sliderarr = array();
+foreach($slider as $s){
+  array_push($sliderarr, asset('upload/posts/'.$s->feature_photo));
+}
+?>
+@endsection
+@section('scripts')
+@parent
+<script>
+  ImageArray = <?php echo json_encode($sliderarr); ?>;
+  console.log(ImageArray);
+</script>
+<script src="{{ asset('layout/scripts/slider.js') }}"></script> 
 @endsection

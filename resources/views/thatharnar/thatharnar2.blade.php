@@ -9,10 +9,10 @@
 <!-- ################################################################################################ -->
 <div class="wrapper row3">
   <div class="spacer">
-    <main class="container clear"> 
+    <main class="container clear">
       <!-- main body -->
       <!-- ################################################################################################ -->
-      <div class="content three_quarter first"> 
+      <div class="content three_quarter first">
         <!-- ################################################################################################ -->
         @foreach($posts as $t)
         <h1 align="center"><b><font size="5px">{!!$t->title!!}</font></b></h1>
@@ -21,6 +21,13 @@
         <p>{!!$t->detail_description!!}</p>
         <hr><br>
         @endforeach
+        <!-- for success message -->
+        @if ($message = Session::get('success'))
+          <div class="alert-success" style=" display: block; background: #efefef;
+  color: green; ">
+              <p >{{ $message }}</p>
+          </div>
+         @endif
         <h1 align="center">သင္တန္း၀င္ခြင့္ေလွ်ာက္လႊာ</h1>
         <p>အေၾကာင္းအရာ။ ။သင္တန္းတက္ေရာက္ခြင့္ျပဳပါရန္ ေလွ်ာက္ထားျခင္း။</p>
         <p>ဘုရားတပည့္ေတာ္သည္ ေအာက္ေဖာ္ျပပါ အခ်က္အလက္မ်ား ကိုယ္တုိင္ျဖည့္စြက္၍ သင္တန္းတက္ေရာက္ခြင့္ျပဳပါရန္ မိမိဆႏၵ အရ ေလွ်ာက္ထားအပ္ပါသည္။</p>
@@ -80,7 +87,7 @@
                       <strong>{{ $errors->first('phone') }}</strong>
                   </span>
               @endif
-            </div>      
+            </div>
             <div class="block clear">
               <label for="email">E-mail ႏွင့္ Facebook <span>*</span></label>
               <input type="email" name="email" id="email" value="{{old('email')}}" size="22">
@@ -111,11 +118,11 @@
             </div>
           </form>
         </div>
-      
+
         <!-- ################################################################################################ -->
       </div>
       <!-- ################################################################################################ -->
-      <div class="sidebar one_quarter"> 
+      <div class="sidebar one_quarter">
         <!-- ################################################################################################ -->
         @include('sidebar')
         <!-- ################################################################################################ -->
@@ -128,4 +135,11 @@
 </div>
 <!-- ################################################################################################ -->
 
+@endsection
+@section('scripts')
+@parent
+<!-- your custom script here -->
+<script>
+  $('.alert-success').fadeIn().delay(5000).fadeOut();
+</script>
 @endsection

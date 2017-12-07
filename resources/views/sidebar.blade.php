@@ -1,6 +1,8 @@
 <div class="sdb_holder">
   <a href="{{route('user.category', ['category' => 'education'])}}"><h6><i class="icon circle fa fa-bank"></i>&nbsp;စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ</h6></a>
-  <p>Nuncsed sed conseque a at quismodo tris mauristibus sed habiturpiscinia sed.</p>
+  @foreach($education as $e)
+  <a href="{{route('user.category', ['category' => 'education'])}}">{{$e->title}}</a>
+  @endforeach
 </div>
 <hr>
 <br>
