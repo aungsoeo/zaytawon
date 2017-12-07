@@ -30,10 +30,20 @@
             <div class="one_third first">
               <label for="degree">သင္တန္းသားဘြဲ႔ေတာ္ <span>*</span></label>
               <input type="text" name="degree" id="degree" value="{{old('degree') }}" size="22">
+              @if ($errors->has('degree'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('degree') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
               <label for="name">အဖအမည္  <span>*</span></label>
               <input type="text" name="f_name" id="f_name" value="{{old('f_name')}}" size="22">
+               @if ($errors->has('f_name'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('f_name') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
               <label for="thatharnar_no">သာသနာ၀င္မွတ္တမ္းအမွတ္ </label>
@@ -46,6 +56,11 @@
             <div class="one_third">
               <label for="age">အသက္  <span>*</span></label>
               <input type="text" name="age" id="age" value="{{old('age')}}" size="22">
+              @if ($errors->has('age'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('age') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
               <label for="url">သိကၡာ </label>
@@ -60,14 +75,29 @@
             <div class="block clear">
               <label for="phone">ဆက္သြယ္ရန္ဖုန္း (Viber ဆက္သြယ္၍ရေသာဖုန္း) <span>*</span></label>
               <input type="text" name="phone" id="phone" value="{{old('phone')}}" size="22">
+               @if ($errors->has('phone'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('phone') }}</strong>
+                  </span>
+              @endif
             </div>      
             <div class="block clear">
               <label for="email">E-mail ႏွင့္ Facebook <span>*</span></label>
               <input type="email" name="email" id="email" value="{{old('email')}}" size="22">
+               @if ($errors->has('email'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="block clear">
               <label for="passed_date">ဓမၼာစရိယဘဲြ႔ရရွိသည့္ ခုႏွစ္သကၠရာဇ္ <span>*</span></label>
               <input type="date" name="passed_date" id="passed_date" value="{{old('passed_date')}}" size="22">
+               @if ($errors->has('passed_date'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('passed_date') }}</strong>
+                  </span>
+              @endif
             </div>
             <div>
               <p>အထက္ပါအေၾကာင္းအရာမ်ားသည္ မွန္ကန္ပါသည္။</p>
