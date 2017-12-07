@@ -60,7 +60,7 @@ class PostController extends Controller
         }
 
         $posts = $posts->orderby('updated_at', 'desc')->paginate(12);
-        // $data['founders'] = Post::where('main_category_id',1)->where('sub_category_id',3)->orderby('id', 'desc')->limit(3)->get();
+        $data['founders'] = Post::where('main_category_id',1)->where('sub_category_id',3)->orderby('id', 'desc')->limit(3)->get();
 
         // $data['thatharnar1'] = Post::where('main_category_id',12)->where('sub_category_id',13)->orderby('id', 'desc')->limit(5)->get();
 
@@ -82,13 +82,19 @@ class PostController extends Controller
 
         $data['people'] = Post::where('main_category_id',17)->orderby('id', 'desc')->limit(10)->get();
 
+        $data['education'] = Post::where('main_category_id',15)->orderby('id', 'desc')->limit(10)->get();
+
+        $data['slider'] = Post::where('main_category_id',1)->where('sub_category_id',20)->orderby('id', 'desc')->get();
+
         $view = str_replace(' ', '', $category.$subview);
         // echo $view;
         // // // echo "<br>";
         // dd($data['thatharnar2']);
+        // dd($data['slider']);
 
         return view($view,[
                 'posts'=>$posts,
+                'founders'=>$data['founders'],
                 // 'thatharnar1'=>$data['thatharnar1'],
                 // 'thatharnar2'=>$data['thatharnar2'],
                 'parahita_process'=>$data['parahita_process'],
@@ -98,7 +104,9 @@ class PostController extends Controller
                 // 'pyinnyardarna'=>$data['pyinnyardarna'] ,
                 'rule'=>$data['rule'] ,
                 'donors'=>$data['donors'],
-                'people'=>$data['people']
+                'people'=>$data['people'],
+                'education'=>$data['education'],
+                'slider'=>$data['slider']
 
             ]);
     }
@@ -112,10 +120,13 @@ class PostController extends Controller
 
         $data['people'] = Post::where('main_category_id',17)->orderby('id', 'desc')->limit(10)->get();
 
+        $data['education'] = Post::where('main_category_id',15)->orderby('id', 'desc')->limit(10)->get();
+
         return view('post_show',[
                 'post'=>$post,
                 'donors'=>$data['donors'],
-                'people'=>$data['people']
+                'people'=>$data['people'],
+                'education'=>$data['education']
 
             ]);
     }
@@ -259,6 +270,60 @@ class PostController extends Controller
     public function monk_student_store(Request $request)
     {
                 // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'degree' => 'required',
+            'f_name' => 'required',
+            'birth_date'=>'required',
+            'age'=>'required',
+            'phone'=>'required',
+            'email'=> 'required|email|unique:contact_form',
+            'passed_date'=>'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+              ->withInput()
+              ->withErrors($validator);
+        }
+
+        $arr=[
+                'degree' => $request->degree,
+                'f_name' => $request->f_name,
+                'thatharnar_no'=>($request->thatharnar_no)?$request->thatharnar_no:'',
+                'birth_date'=>$request->birth_date,
+                'age'=>$request->age,
+                'war_taw'=>$request->war_taw,
+                'school_address'=>$request->school_address,
+                'phone'=>$request->phone,
+                'email'=> $request->email,
+                'passed_date'=>$request->passed_date
+            ];
+
+        // dd($arr);
+        $input['email']=($request->email)?$request->email:'';
+        $user=Form::create($arr);
+        /**tempory commit out **/
+        /**
+        if($input['email']!=''){
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com"), $user->email]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        }else{
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com")]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        } **/
+
+        return redirect()->back()->with('success','Thanks for contacting us!');
+    }
+    // စာသင္သားသံဃာမ်ား ၀င္ခြင့္ပုံစံ
+    public function monk_entrace_store(Request $request)
+    {
+                dd($request->all());
         $validator = Validator::make($request->all(), [
             'degree' => 'required',
             'f_name' => 'required',
