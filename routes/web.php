@@ -101,14 +101,16 @@ Route::get('post/{id}/show',['as'=>'post.show', 'uses'=>'PostController@show']);
 
 Route::post('/form',['as'=>'form.store', 'uses'=>'PostController@form_store']);
 
-Route::post('/contact',['as'=>'contact.store', 'uses'=>'PostController@contact_store']);
 
-Route::get('/download/{id}', [
-	'as' => 'downloadfile', 'uses' => 'PostController@downfun']);
+
+Route::get('/download/{id}', ['as' => 'downloadfile', 'uses' => 'PostController@downfun']);
 Route::get('/view/{attach_file}', ['as' => 'viewfile', 'uses' => 'PostController@viewfile']);
 
 Route::get('get-video/{video}', 'PostController@getVideo')->name('getVideo');
 
-Route::post('/contact/store',['as'=>'contact.store', 'uses'=>'PostController@contact_store']);
 
-Route::post('/monk_student/store',['as'=>'monk_student.store', 'uses'=>'PostController@monk_student_store']);
+Route::post('/contact/store',['as'=>'contact.store', 'uses'=>'RegistrationController@contact_store']);
+
+Route::post('/monk_student/store',['as'=>'monk_student.store', 'uses'=>'RegistrationController@monk_student_store']);
+
+Route::post('/monk_entrace/store',['as'=>'monk_entrace.store', 'uses'=>'RegistrationController@monk_entrace_store']);
