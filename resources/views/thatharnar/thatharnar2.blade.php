@@ -36,42 +36,47 @@
             {!! csrf_field() !!}
             <div class="one_third first">
               <label for="degree">သင္တန္းသားဘြဲ႔ေတာ္ <span>*</span></label>
-              <input type="text" name="degree" id="degree" value="{{old('degree') }}" size="22">
-              @if ($errors->has('degree'))
+              <input type="text" name="သင္တန္းသားဘြဲ႔ေတာ္" id="degree" value="{{old('သင္တန္းသားဘြဲ႔ေတာ္') }}" size="22">
+              @if ($errors->has('သင္တန္းသားဘြဲ႔ေတာ္'))
                   <span class="help-block" style="color: #b94a48">
-                      <strong>{{ $errors->first('degree') }}</strong>
+                      <strong>{{ $errors->first('သင္တန္းသားဘြဲ႔ေတာ္') }}</strong>
                   </span>
               @endif
             </div>
             <div class="one_third">
               <label for="name">အဖအမည္  <span>*</span></label>
-              <input type="text" name="f_name" id="f_name" value="{{old('f_name')}}" size="22">
-               @if ($errors->has('f_name'))
+              <input type="text" name="အဖအမည္" id="f_name" value="{{old('အဖအမည္')}}" size="22">
+               @if ($errors->has('အဖအမည္'))
                   <span class="help-block" style="color: #b94a48">
-                      <strong>{{ $errors->first('f_name') }}</strong>
+                      <strong>{{ $errors->first('အဖအမည္') }}</strong>
                   </span>
               @endif
             </div>
             <div class="one_third">
               <label for="thatharnar_no">သာသနာ၀င္မွတ္တမ္းအမွတ္ </label>
-              <input type="text" name="thatharnar_no" id="thatharnar_no" value="{{old('thatharnar_no')}}" size="22">
+              <input type="text" name="သာသနာ၀င္မွတ္တမ္းအမွတ္" id="thatharnar_no" value="{{old('သာသနာ၀င္မွတ္တမ္းအမွတ္')}}" size="22">
             </div>
             <div class="one_third first">
               <label for="birth_date">ေမြးသကၠရာဇ္ <span>*</span></label>
-               <input type="date" name="birth_date" value="{{old('birth_date')}}" size="22">
+               <input type="date" name="ေမြးသကၠရာဇ္" value="{{old('ေမြးသကၠရာဇ္')}}" size="22">
+               @if ($errors->has('ေမြးသကၠရာဇ္'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('ေမြးသကၠရာဇ္') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
               <label for="age">အသက္  <span>*</span></label>
-              <input type="text" name="age" id="age" value="{{old('age')}}" size="22">
-              @if ($errors->has('age'))
+              <input type="text" name="အသက္" id="age" value="{{old('အသက္')}}" size="22">
+              @if ($errors->has('အသက္'))
                   <span class="help-block" style="color: #b94a48">
-                      <strong>{{ $errors->first('age') }}</strong>
+                      <strong>{{ $errors->first('အသက္') }}</strong>
                   </span>
               @endif
             </div>
             <div class="one_third">
               <label for="url">သိကၡာ </label>
-              <input type="text" name="war_taw" id="war_taw" value="{{old('war_taw')}}" size="22">
+              <input type="text" name="သိကၡာ" id="war_taw" value="{{old('သိကၡာ')}}" size="22">
             </div>
             <div class="block clear">
               <label for="school_address">ေက်ာင္းတုိက္ႏွင့္ေနရပ္လိပ္စာအျပည့္အစုံ</label>
@@ -81,10 +86,10 @@
             </div>
             <div class="block clear">
               <label for="phone">ဆက္သြယ္ရန္ဖုန္း (Viber ဆက္သြယ္၍ရေသာဖုန္း) <span>*</span></label>
-              <input type="text" name="phone" id="phone" value="{{old('phone')}}" size="22">
-               @if ($errors->has('phone'))
+              <input type="text" name="ဆက္သြယ္ရန္ဖုန္း" id="phone" value="{{old('ဆက္သြယ္ရန္ဖုန္း')}}" size="22">
+               @if ($errors->has('ဆက္သြယ္ရန္ဖုန္း'))
                   <span class="help-block" style="color: #b94a48">
-                      <strong>{{ $errors->first('phone') }}</strong>
+                      <strong>{{ $errors->first('ဆက္သြယ္ရန္ဖုန္း') }}</strong>
                   </span>
               @endif
             </div>
@@ -99,10 +104,10 @@
             </div>
             <div class="block clear">
               <label for="passed_date">ဓမၼာစရိယဘဲြ႔ရရွိသည့္ ခုႏွစ္သကၠရာဇ္ <span>*</span></label>
-              <input type="date" name="passed_date" id="passed_date" value="{{old('passed_date')}}" size="22">
-               @if ($errors->has('passed_date'))
+              <input type="date" name="ဓမၼာစရိယဘဲြ႔ရရွိသည့္ခုႏွစ္သကၠရာဇ္" id="passed_date" value="{{old('ဓမၼာစရိယဘဲြ႔ရရွိသည့္ခုႏွစ္သကၠရာဇ္')}}" size="22">
+               @if ($errors->has('ဓမၼာစရိယဘဲြ႔ရရွိသည့္ခုႏွစ္သကၠရာဇ္'))
                   <span class="help-block" style="color: #b94a48">
-                      <strong>{{ $errors->first('passed_date') }}</strong>
+                      <strong>{{ $errors->first('ဓမၼာစရိယဘဲြ႔ရရွိသည့္ခုႏွစ္သကၠရာဇ္') }}</strong>
                   </span>
               @endif
             </div>

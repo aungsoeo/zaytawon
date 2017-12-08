@@ -10,8 +10,9 @@ class MonkEntranceForm extends Model
     protected $table = 'monk_entrance_form';
 
     protected $fillable = [
-        "degree",,
+        "degree",
         "age" ,
+        "war_taw",
         "birth_date",
         "birth_place",
         "thatharnar_no" ,
@@ -19,7 +20,8 @@ class MonkEntranceForm extends Model
         "teacher_name_address",
         "lived_monastery",
         "learned_monastery",
-        "f_name_address",
+        "f_name",
+        "f_address",
         "passed_gov_sch"
     ];
 

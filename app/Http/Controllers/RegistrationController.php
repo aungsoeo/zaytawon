@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Model\Post;
 use App\Model\Category;
 use App\Form;
+use App\Model\MonkEntranceForm;
 use App\Contact;
 use Validator;
 use Mail;
@@ -21,7 +22,8 @@ class RegistrationController extends Controller
         // dd($request->all());
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            // 'email'=> 'required|email|unique:contact_form',
+            'email'=> 'email|unique:contact_form,email',
+            'url'=>'url'
         ]);
 
         if ($validator->fails()) {
@@ -64,13 +66,13 @@ class RegistrationController extends Controller
     {
                 // dd($request->all());
         $validator = Validator::make($request->all(), [
-            'degree' => 'required',
-            'f_name' => 'required',
-            'birth_date'=>'required',
-            'age'=>'required',
-            'phone'=>'required',
+            'သင္တန္းသားဘြဲ႔ေတာ္' => 'required',
+            'အဖအမည္' => 'required',
+            'ေမြးသကၠရာဇ္'=>'required',
+            'အသက္'=>'required',
+            'ဆက္သြယ္ရန္ဖုန္း'=>'required',
             'email'=> 'required|email|unique:contact_form',
-            'passed_date'=>'required'
+            'ဓမၼာစရိယဘဲြ႔ရရွိသည့္ခုႏွစ္သကၠရာဇ္'=>'required'
         ]);
 
         if ($validator->fails()) {
@@ -80,20 +82,20 @@ class RegistrationController extends Controller
         }
 
         $arr=[
-                'degree' => $request->degree,
-                'f_name' => $request->f_name,
-                'thatharnar_no'=>($request->thatharnar_no)?$request->thatharnar_no:'',
-                'birth_date'=>$request->birth_date,
-                'age'=>$request->age,
-                'war_taw'=>$request->war_taw,
+                'degree' => $request->သင္တန္းသားဘြဲ႔ေတာ္,
+                'f_name' => $request->အဖအမည္,
+                'thatharnar_no'=>($request->သာသနာ၀င္မွတ္တမ္းအမွတ္)?$request->သာသနာ၀င္မွတ္တမ္းအမွတ္:'',
+                'birth_date'=>$request->ေမြးသကၠရာဇ္,
+                'age'=>$request->အသက္,
+                'war_taw'=>$request->သိကၡာ,
                 'school_address'=>$request->school_address,
-                'phone'=>$request->phone,
+                'phone'=>$request->ဆက္သြယ္ရန္ဖုန္း,
                 'email'=> $request->email,
-                'passed_date'=>$request->passed_date
+                'passed_date'=>$request->ဓမၼာစရိယဘဲြ႔ရရွိသည့္ခုႏွစ္သကၠရာဇ္
             ];
-
+// 
         // dd($arr);
-        $input['email']=($request->email)?$request->email:'';
+        // $input['email']=($request->email)?$request->email:'';
         $user=Form::create($arr);
         /**tempory commit out **/
         /**
@@ -118,9 +120,10 @@ class RegistrationController extends Controller
     {   
         $validator = Validator::make($request->all(), [
           "ဘဲြ႔အမည္" => 'required',
-          "အသက္_သိကၡာ" => 'required',
+          "အသက္" => 'required',
+          "သိကၡာ"=> 'required',
           "သာသနာ၀င္မွတ္တမ္းအမွတ္" => 'required',
-          "အျမင့္ဆုံးေအာင္ျမင္ခဲ့သည့္အစုိးရစာေမးပဲြ_" => 'required'
+          // "အျမင့္ဆုံးေအာင္ျမင္ခဲ့သည့္အစုိးရစာေမးပဲြ" => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -131,21 +134,24 @@ class RegistrationController extends Controller
 
         $arr=[
                 "degree"=>$request->ဘဲြ႔အမည္,
-                "age"=>$request->အသက္_သိကၡာ,
-                "birth_date"=>$request->ေမြးသကၠရာဇ္,
-                "birth_place"=>$request->ေမြးရပ္ဇာတိ,
-                "thatharnar_no"=>$request->သာသနာ၀င္မွတ္တမ္းအမွတ္,
-                "live_monastery"=>$request->မူလသီတင္းသုံးရာေက်ာင္းတုိက္,
-                "teacher_name_address"=>$request->ဥပဇၥ်ယ္ဆရာေတာ္ဘြဲ႔အမည္ႏွင္ေနရပ္လိပ္စာ,
-                "lived_monastery"=>$request->ေနထုိင္ခဲ့ဘူးေသာေက်ာင္းတုိက္မ်ား,
-                "learned_monastery"=>$request->ေနာက္ဆုံးေနထုိင္ပညာသင္ၾကားခဲ့ေသာေက်ာင္းတုိက္ႏွင့္လိပ္စာ,
-                "f_name_address"=>$request->အဘအမည္ႏွင့္_ေနရပ္လိပ္စာ,
-                "passed_gov_sch"=>$request->အျမင့္ဆုံးေအာင္ျမင္ခဲ့သည့္အစုိးရစာေမးပဲြ
+                "age"=>($request->အသက္)?$request->အသက္:'',
+                "war_taw"=>($request->သိကၡာ)?$request->သိကၡာ:'',
+                "birth_date"=>($request->ေမြးသကၠရာဇ္)?$request->ေမြးသကၠရာဇ္:'',
+                "birth_place"=>($request->ေမြးရပ္ဇာတိ)?$request->ေမြးရပ္ဇာတိ:'',
+                "thatharnar_no"=>($request->သာသနာ၀င္မွတ္တမ္းအမွတ္)?$request->သာသနာ၀င္မွတ္တမ္းအမွတ္:'',
+                "live_monastery"=>($request->မူလသီတင္းသုံးရာေက်ာင္းတုိက္)?$request->မူလသီတင္းသုံးရာေက်ာင္းတုိက္:'',
+                "teacher_name_address"=>($request->ဥပဇၥ်ယ္ဆရာေတာ္ဘြဲ႔အမည္ႏွင္ေနရပ္လိပ္စာ)?$request->ဥပဇၥ်ယ္ဆရာေတာ္ဘြဲ႔အမည္ႏွင္ေနရပ္လိပ္စာ :' ',
+                "lived_monastery"=>($request->ေနထုိင္ခဲ့ဘူးေသာေက်ာင္းတုိက္မ်ား)?$request->ေနထုိင္ခဲ့ဘူးေသာေက်ာင္းတုိက္မ်ား:'',
+                "learned_monastery"=>($request->ေနာက္ဆုံးေနထုိင္ပညာသင္ၾကားခဲ့ေသာေက်ာင္းတုိက္ႏွင့္လိပ္စာ)?$request->ေနာက္ဆုံးေနထုိင္ပညာသင္ၾကားခဲ့ေသာေက်ာင္းတုိက္ႏွင့္လိပ္စာ:'',
+                "f_name"=>($request->အဘအမည္)?$request->အဘအမည္:'',
+                "f_address"=>($request->ေနရပ္လိပ္စာ)?$request->ေနရပ္လိပ္စာ:'',
+                "passed_gov_sch"=>($request->အျမင့္ဆုံးေအာင္ျမင္ခဲ့သည့္အစုိးရစာေမးပဲြ)?$request->အျမင့္ဆုံးေအာင္ျမင္ခဲ့သည့္အစုိးရစာေမးပဲြ:''
             ];
 
-        dd($arr);
-        $input['email']=($request->email)?$request->email:'';
-        $user=Form::create($arr);
+        // dd($arr);
+
+        // $input['email']=($request->email)?$request->email:'';
+        $user=MonkEntranceForm::create($arr);
         /**tempory commit out **/
         /**
         if($input['email']!=''){

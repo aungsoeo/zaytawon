@@ -52,11 +52,11 @@
             </div>
             <div class="one_third">
               <label for="url">Website</label>
-              <input type="text" name="url" id="url" value="" size="22">
+              <input type="url" name="url" id="url" value="{{old('url')}}" size="22" placeholder="Example https://www.google.com">
             </div>
             <div class="block clear">
               <label for="comment">Your Comment</label>
-              <textarea name="comment" id="comment" cols="25" rows="10"></textarea>
+              <textarea name="comment" id="comment" cols="25" rows="10">{{old('comment')}}</textarea>
             </div>
             <div>
               <input name="submit" type="submit" value="Submit Form">
