@@ -27,6 +27,8 @@ Route::group(['prefix' => 'admin'], function(){
 		Route::post('/category/{id}/edit', ['as' => 'admin.category.edit', 'uses' => 'CategoryController@update']);
 
 		Route::get('/category/{id}/delete', ['as' => 'admin.category.delete', 'uses' => 'CategoryController@delete']);
+#########################################################################################
+		//post route 
 
 		Route::get('/post', ['as' => 'admin.post', 'uses' => 'PostController@index']);
 
@@ -42,14 +44,14 @@ Route::group(['prefix' => 'admin'], function(){
 
 		Route::get('/post/{id}/delete', ['as' => 'admin.post.delete', 'uses' => 'PostController@delete']);
 
-		Route::post('/post/search',array('as'=>'admin.post.search','uses'=>'PostController@search'));
+		Route::post('/post',array('as'=>'admin.post.search','uses'=>'PostController@search'));
 
 		Route::get('/contact', ['as' => 'admin.contact', 'uses' => 'ContactController@index']);
 
 		Route::get('/contact/{id}/delete', ['as' => 'admin.contact.delete', 'uses' => 'ContactController@delete']);
 
-		Route::post('/contact/search',array('as'=>'admin.contact.search','uses'=>'ContactController@search'));
-
+		Route::post('/contact',array('as'=>'admin.contact.search','uses'=>'ContactController@search'));
+#####################################################################################
 		//route for admin.user
 		Route::get('/user', ['as' => 'admin.user', 'uses' => 'UserController@index']);
 
@@ -63,26 +65,48 @@ Route::group(['prefix' => 'admin'], function(){
 
 		Route::get('/user/{id}/delete', ['as' => 'admin.user.delete', 'uses' => 'UserController@delete']);
 
-		Route::post('/user/search',array('as'=>'admin.user.search','uses'=>'UserController@search'));
-
+		Route::post('/user',array('as'=>'admin.user.search','uses'=>'UserController@search'));
+#######################################################################################
 		Route::get('/post/search',array('as'=>'admin.post.search','uses'=>'PostController@search'));
 
 		Route::post('/post/getsub', array('as'=>'admin.post.getsub','uses'=>'PostController@getsub'));
+#####################################################################################
+		//Route for student
+		Route::get('/student', ['as' => 'admin.student', 'uses' => 'StudentController@index']);
 
-		//Route for member
-		Route::get('/member', ['as' => 'admin.member', 'uses' => 'PostController@show_member']);
+		Route::get('/student/{id}/show', ['as' => 'admin.student.show', 'uses' => 'StudentController@show_student']);
 
-		// Route::get('/member/create', ['as' => 'admin.user.create', 'uses' => 'UserController@create']);
+		Route::get('/student/{id}/delete', ['as' => 'admin.student.delete', 'uses' => 'StudentController@delete']);
 
-		// Route::post('/user/create', ['as' => 'admin.user.store', 'uses' => 'UserController@store']);
-		// add route for post update by ASO
-		Route::get('/member/{id}/edit', ['as' => 'admin.member.edit', 'uses' => 'PostController@edit']);
+		Route::post('/student',array('as'=>'admin.student.search','uses'=>'StudentController@search'));
+########################################################################################
+		//စာသင္သားသံဃာမ်ား
+		Route::get('/စာသင္သားသံဃာမ်ား', ['as' => 'admin.sarthinthar', 'uses' => 'MonkEntranceController@index']);
 
-		Route::post('/member/{id}/update', ['as' => 'admin.member.update', 'uses' => 'PostController@update']);
+		Route::get('/စာသင္သားသံဃာမ်ား/{id}/show', ['as' => 'admin.စာသင္သားသံဃာမ်ား.show', 'uses' => 'MonkEntranceController@show']);
 
-		Route::get('/member/{id}/delete', ['as' => 'admin.member.delete', 'uses' => 'PostController@delete']);
+		Route::get('/စာသင္သားသံဃာမ်ား/{id}/delete', ['as' => 'admin.စာသင္သားသံဃာမ်ား.delete', 'uses' => 'MonkEntranceController@delete']);
 
-		Route::post('/member/search',array('as'=>'admin.member.search','uses'=>'PostController@member_search'));
+		Route::post('/စာသင္သားသံဃာမ်ား',array('as'=>'admin.စာသင္သားသံဃာမ်ား.search','uses'=>'MonkEntranceController@search'));
+#########################################################################################
+		//သင္တန္းသားမ်ား 
+		Route::get('/သင္တန္းသားမ်ား', ['as' => 'admin.သင္တန္းသားမ်ား', 'uses' => 'CourseController@index']);
+
+		Route::get('/သင္တန္းသားမ်ား/{id}/show', ['as' => 'admin.သင္တန္းသားမ်ား.show', 'uses' => 'CourseController@show']);
+
+		Route::get('/သင္တန္းသားမ်ား/{id}/delete', ['as' => 'admin.သင္တန္းသားမ်ား.delete', 'uses' => 'CourseController@delete']);
+
+		Route::post('/သင္တန္းသားမ်ား',array('as'=>'admin.သင္တန္းသားမ်ား.search','uses'=>'CourseController@search'));
+#######################################################################################################
+	// Route for တရားပဲြပင့္ေလွ်ာက္သူမ်ား
+		Route::get('/တရားပဲြပင့္ေလွ်ာက္သူမ်ား', ['as' => 'admin.people', 'uses' => 'PeopleController@index']);
+
+		Route::get('/တရားပဲြပင့္ေလွ်ာက္သူမ်ား/{id}/show', ['as' => 'admin.people.show', 'uses' => 'PeopleController@show']);
+
+		Route::get('/တရားပဲြပင့္ေလွ်ာက္သူမ်ား/{id}/delete', ['as' => 'admin.people.delete', 'uses' => 'PeopleController@delete']);
+
+		Route::post('/တရားပဲြပင့္ေလွ်ာက္သူမ်ား',array('as'=>'admin.people.search','uses'=>'PeopleController@search'));
+		###################################################################################
 
 	});
 });
@@ -114,3 +138,8 @@ Route::post('/contact/store',['as'=>'contact.store', 'uses'=>'RegistrationContro
 Route::post('/monk_student/store',['as'=>'monk_student.store', 'uses'=>'RegistrationController@monk_student_store']);
 
 Route::post('/monk_entrace/store',['as'=>'monk_entrace.store', 'uses'=>'RegistrationController@monk_entrace_store']);
+
+Route::post('/တရားပဲြပင့္ေလွ်ာက္လုိသူမ်ား/store',['as'=>'people.store', 'uses'=>'RegistrationController@people_store']);
+
+
+Route::post('/pyinnyardarna/store',['as'=>'pyinnyardarna.store', 'uses'=>'RegistrationController@pyinnyardarna_store']);
