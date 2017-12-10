@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 06, 2017 at 06:14 PM
+-- Generation Time: Dec 10, 2017 at 05:54 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -21,26 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `zaytawon_db`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_form`
---
-
-CREATE TABLE `book_form` (
-  `id` int(11) NOT NULL,
-  `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `book_form`
---
-
-INSERT INTO `book_form` (`id`, `email`, `created_at`, `updated_at`) VALUES
-(3, 'aungsoeoo.94s@gmail.com', '2017-09-09 09:33:29', '2017-09-09 09:33:29');
 
 -- --------------------------------------------------------
 
@@ -81,7 +61,8 @@ INSERT INTO `category` (`id`, `title`, `parent_id`, `description`, `main_or_sub`
 (16, 'donor', 0, 'This is donor category.', 0, '2017-12-04 07:19:30', '2017-12-04 07:19:30'),
 (17, 'people', 0, 'တရားပဲြပင့္ေလွ်ာက္လုိသူမ်ား', 0, '2017-12-04 07:21:12', '2017-12-04 07:21:12'),
 (18, 'ပရဟိတလုပ္ငန္းစဥ္မ်ား', 12, 'ပရဟိတလုပ္ငန္းစဥ္မ်ား', 1, '2017-12-04 09:47:26', '2017-12-04 09:47:26'),
-(19, 'သင္တန္းသားမ်ားလုိက္နာရန္ စည္မ်ဥ္း', 9, 'သင္တန္းသားမ်ားလုိက္နာရန္ စည္မ်ဥ္း', 1, '2017-12-05 00:53:26', '2017-12-05 00:53:26');
+(19, 'သင္တန္းသားမ်ားလုိက္နာရန္ စည္မ်ဥ္း', 9, 'သင္တန္းသားမ်ားလုိက္နာရန္ စည္မ်ဥ္း', 1, '2017-12-05 00:53:26', '2017-12-05 00:53:26'),
+(20, 'slider', 1, 'This is slider category.', 1, '2017-12-07 08:14:18', '2017-12-07 08:14:18');
 
 -- --------------------------------------------------------
 
@@ -115,14 +96,12 @@ INSERT INTO `contact_form` (`id`, `name`, `email`, `url`, `comment`, `created_at
 (10, 'foo', 'foo@gmail.com', '', 'this is foo comment', '2017-10-20 11:44:09', '2017-10-20 11:44:09'),
 (11, 'bar', 'bar@gmail.com', '', 'this is test', '2017-10-20 11:47:25', '2017-10-20 11:47:25'),
 (12, 'test name', 'test@gmail.com', '', 'this is testing', '2017-10-20 11:50:23', '2017-10-20 11:50:23'),
-(13, 'aungsoeoo', 'aso@exmaple.com', '', 'this is msg', '2017-10-25 09:38:16', '2017-10-25 09:38:16'),
-(14, 'test', '', '', 'testing data', '2017-10-29 07:08:43', '2017-10-29 07:08:43'),
 (16, 'mgmg', 'mgmg343433@gmail.com', 'www.mgmg.com', 'This is comment/', '2017-12-06 09:12:39', '2017-12-06 09:12:39'),
 (17, 'koko', 'koko@gmail.com', 'www.koko.com', 'Thisdfijeifjeifjeijfei', '2017-12-06 09:13:53', '2017-12-06 09:13:53'),
 (18, 'mama', 'mama@example.com', 'www.mama.com', 'This is example.', '2017-12-06 09:19:31', '2017-12-06 09:19:31'),
-(19, 'kdfkdfkdfk', 'kdfk@gmail.com', 'www.abc.com', 'This is comment.', '2017-12-06 09:24:24', '2017-12-06 09:24:24'),
 (20, 'kdfkejfiejieji', 'kdfiee@exmaple.com', 'kdfiedjf', 'kdfiejfiejfe', '2017-12-06 09:25:36', '2017-12-06 09:25:36'),
-(21, 'kyawkyaw', 'kyaw@gmai.com', 'kdfiejfie', 'efefefefe', '2017-12-06 09:27:05', '2017-12-06 09:27:05');
+(21, 'kyawkyaw', 'kyaw@gmai.com', 'kdfiejfie', 'efefefefe', '2017-12-06 09:27:05', '2017-12-06 09:27:05'),
+(23, 'bar', 'bar12313@gmail.com', 'www.bar.com', 'I am bar', '2017-12-07 10:46:55', '2017-12-07 10:46:55');
 
 -- --------------------------------------------------------
 
@@ -152,6 +131,38 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `monk_entrance_form`
+--
+
+CREATE TABLE `monk_entrance_form` (
+  `id` int(11) NOT NULL,
+  `degree` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `age` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `war_taw` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `birth_date` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `birth_place` text COLLATE utf8_unicode_ci NOT NULL,
+  `thatharnar_no` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `live_monastery` text COLLATE utf8_unicode_ci NOT NULL,
+  `teacher_name_address` text COLLATE utf8_unicode_ci NOT NULL,
+  `lived_monastery` text COLLATE utf8_unicode_ci NOT NULL,
+  `learned_monastery` text COLLATE utf8_unicode_ci NOT NULL,
+  `f_name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `f_address` text COLLATE utf8_unicode_ci NOT NULL,
+  `passed_gov_sch` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `monk_entrance_form`
+--
+
+INSERT INTO `monk_entrance_form` (`id`, `degree`, `age`, `war_taw`, `birth_date`, `birth_place`, `thatharnar_no`, `live_monastery`, `teacher_name_address`, `lived_monastery`, `learned_monastery`, `f_name`, `f_address`, `passed_gov_sch`, `created_at`, `updated_at`) VALUES
+(1, 'ဦးပညာဝံသ', '၃၁', '၁၀', '၁၃၇၂၊နတ္ေတာ္ဆလန္း(၁၀)ရက္', 'သေျပကုန္းရြာ။ေရနီျမိဳ့', '၂၃၄၃၈၄၈၃၄၃', 'ေဇတဝန္ေက်ာင္းတိုက္', 'ဦးေတေဇာဘာသ။ ရန္ကုန္ မစိုးရိမ္ေက်ာင္းတိုက္။', 'ေသြးေဆးကန္ေက်ာင္းတိုက္။ ေဝ႒ဳဝန္ေက်ာင္းတိုက္', 'ေဇတဝန္ေက်ာင္း', 'ဦးျမသာ', 'သေျပကုန္းေက်းရြာ၊ေရနီျမိဳ', '၁၀ တန္း', '2017-12-09 01:49:03', '2017-12-09 01:49:03');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `monk_registration_form`
 --
 
@@ -176,7 +187,8 @@ CREATE TABLE `monk_registration_form` (
 --
 
 INSERT INTO `monk_registration_form` (`id`, `degree`, `f_name`, `thatharnar_no`, `birth_date`, `age`, `war_taw`, `school_address`, `phone`, `email`, `passed_date`, `created_at`, `updated_at`) VALUES
-(16, 'ဦးသုမန', 'ဦးလွ', '၅၉၃၄၉၃၄၉၃၈၄၉၃', '1988-06-14', 35, 10, 'ရန္ကုန္', '၀၉၃၄၃၈၄၈၃၈၄၃', 'thumana@gmail.com', '2017-12-06', '2017-12-06 10:35:35', '2017-12-06 10:35:35');
+(16, 'ဦးသုမန', 'ဦးလွ', '၅၉၃၄၉၃၄၉၃၈၄၉၃', '1988-06-14', 35, 10, 'ရန္ကုန္', '၀၉၃၄၃၈၄၈၃၈၄၃', 'thumana@gmail.com', '2017-12-06', '2017-12-06 10:35:35', '2017-12-06 10:35:35'),
+(18, 'ဦးေကာသံလ', 'ဦးဘ', '၂၃၂၄၈၂၄၈၂၄၂', '1990-01-01', 29, 5, 'ရန္ကုန္ ေသြးေဆးကန္ေက်ာင္းတိုက္', '၀၉၃၄၃၈၄၈၃၈၄၃', 'ukaythanla@gmail.com', '2006-02-14', '2017-12-07 10:56:05', '2017-12-07 10:56:05');
 
 -- --------------------------------------------------------
 
@@ -189,6 +201,44 @@ CREATE TABLE `password_resets` (
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `people`
+--
+
+CREATE TABLE `people` (
+  `id` int(11) NOT NULL,
+  `title` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `place` text COLLATE utf8_unicode_ci NOT NULL,
+  `date` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `c_name` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  `c_address` text COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `position` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `people`
+--
+
+INSERT INTO `people` (`id`, `title`, `place`, `date`, `c_name`, `c_address`, `phone`, `position`, `created_at`, `updated_at`) VALUES
+(1, 'ေက်ာင္းေရစက္ခ်', 'လသာ ၁၈ လမ္း', '(နတ္ေတာ္လဆန္း ၁၀ ရရက္)', 'ဦး ေအာင္ေမာင္း', 'လသာ ၁၈ လမ္း အိမ္အမွတ္၁၈', '၀၉၈၃၄၈၃၄၈၃', 'ကားနဲ့', '2017-12-10 01:37:01', '2017-12-10 01:37:01'),
+(4, 'ဆြမ္းေလာင္း ေအာင္ပဲြ', 'မရမ္းကုန္း', '11/12/2017 (တပို့တြဲ လဆန္း ၈ ရက္)', 'ဦးေအာင္ေက်ာ္', 'မရမ္းကုန္းျမိဳ့', '၀၉၇၄၈၃၈၃၄၃၈', 'ကားျဖင့္ ပင့္ေဆာင့္ပါမည္', '2017-12-10 06:11:58', '2017-12-10 06:11:58'),
+(5, 'ဆြမ္းေလာင္း ေအာင္ပဲြ', 'မရမ္းကုန္း', '11/12/2017 (တပို့တြဲ လဆန္း ၈ ရက္)', 'ဦးေမာင္ေမာင္', 'မရမ္းကုန္းျမိဳ့', '၀၉၇၄၈၃၈၃၄၃၈', 'ကားျဖင့္ ပင့္ေဆာင့္ပါမည္', '2017-12-10 06:11:58', '2017-12-10 06:11:58'),
+(6, 'ေက်ာင္းေရစက္ခ်', 'လသာ ၁၈ လမ္း', '(နတ္ေတာ္လဆန္း ၁၀ ရရက္)', 'ဦး ေက်ာ္ေက်ာ္', 'လသာ ၁၈ လမ္း အိမ္အမွတ္၁၈', '၀၉၈၃၄၈၃၄၈၃', 'ကားနဲ့', '2017-12-10 01:37:01', '2017-12-10 01:37:01'),
+(7, 'ေက်ာင္းေရစက္ခ်', 'လသာ ၁၈ လမ္း', '(နတ္ေတာ္လဆန္း ၁၀ ရရက္)', 'ဦး ေအာင္ေမာင္း၁', 'လသာ ၁၈ လမ္း အိမ္အမွတ္၁၈', '၀၉၈၃၄၈၃၄၈၃', 'ကားနဲ့', '2017-12-10 01:37:01', '2017-12-10 01:37:01'),
+(8, 'ဆြမ္းေလာင္း ေအာင္ပဲြ', 'မရမ္းကုန္း', '11/12/2017 (တပို့တြဲ လဆန္း ၈ ရက္)', 'ဦးေအာင္ေက်ာ္၂', 'မရမ္းကုန္းျမိဳ့', '၀၉၇၄၈၃၈၃၄၃၈', 'ကားျဖင့္ ပင့္ေဆာင့္ပါမည္', '2017-12-10 06:11:58', '2017-12-10 06:11:58'),
+(9, 'ဆြမ္းေလာင္း ေအာင္ပဲြ', 'မရမ္းကုန္း', '11/12/2017 (တပို့တြဲ လဆန္း ၈ ရက္)', 'ဦးေမာင္ေမာင္၃', 'မရမ္းကုန္းျမိဳ့', '၀၉၇၄၈၃၈၃၄၃၈', 'ကားျဖင့္ ပင့္ေဆာင့္ပါမည္', '2017-12-10 06:11:58', '2017-12-10 06:11:58'),
+(10, 'ေက်ာင္းေရစက္ခ်', 'လသာ ၁၈ လမ္း', '(နတ္ေတာ္လဆန္း ၁၀ ရရက္)', 'ဦး ေက်ာ္ေက်ာ္၄', 'လသာ ၁၈ လမ္း အိမ္အမွတ္၁၈', '၀၉၈၃၄၈၃၄၈၃', 'ကားနဲ့', '2017-12-10 01:37:01', '2017-12-10 01:37:01'),
+(11, 'ေက်ာင္းေရစက္ခ်', 'လသာ ၁၈ လမ္း', '(နတ္ေတာ္လဆန္း ၁၀ ရရက္)', 'ဦး ေက်ာ္ေက်ာ္', 'လသာ ၁၈ လမ္း အိမ္အမွတ္၁၈', '၀၉၈၃၄၈၃၄၈၃', 'ကားနဲ့', '2017-12-10 01:37:01', '2017-12-10 01:37:01'),
+(12, 'ေက်ာင္းေရစက္ခ်', 'လသာ ၁၈ လမ္း', '(နတ္ေတာ္လဆန္း ၁၀ ရရက္)', 'ဦး ေအာင္ေမာင္း၁', 'လသာ ၁၈ လမ္း အိမ္အမွတ္၁၈', '၀၉၈၃၄၈၃၄၈၃', 'ကားနဲ့', '2017-12-10 01:37:01', '2017-12-10 01:37:01'),
+(13, 'ဆြမ္းေလာင္း ေအာင္ပဲြ', 'မရမ္းကုန္း', '11/12/2017 (တပို့တြဲ လဆန္း ၈ ရက္)', 'ဦးေအာင္ေက်ာ္၂', 'မရမ္းကုန္းျမိဳ့', '၀၉၇၄၈၃၈၃၄၃၈', 'ကားျဖင့္ ပင့္ေဆာင့္ပါမည္', '2017-12-10 06:11:58', '2017-12-10 06:11:58'),
+(14, 'ဆြမ္းေလာင္း ေအာင္ပဲြ', 'မရမ္းကုန္း', '11/12/2017 (တပို့တြဲ လဆန္း ၈ ရက္)', 'ဦးေမာင္ေမာင္၃', 'မရမ္းကုန္းျမိဳ့', '၀၉၇၄၈၃၈၃၄၃၈', 'ကားျဖင့္ ပင့္ေဆာင့္ပါမည္', '2017-12-10 06:11:58', '2017-12-10 06:11:58'),
+(15, 'ေက်ာင္းေရစက္ခ်', 'လသာ ၁၈ လမ္း', '(နတ္ေတာ္လဆန္း ၁၀ ရရက္)', 'ဦး ေက်ာ္ေက်ာ္၄', 'လသာ ၁၈ လမ္း အိမ္အမွတ္၁၈', '၀၉၈၃၄၈၃၄၈၃', 'ကားနဲ့', '2017-12-10 01:37:01', '2017-12-10 01:37:01');
 
 -- --------------------------------------------------------
 
@@ -220,7 +270,7 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `main_category_id`, `sub_category_id`, `short_description`, `detail_description`, `feature_photo`, `attach_file`, `detail_photo`, `custom_field1`, `custom_field2`, `custom_field3`, `custom_field4`, `custom_field5`, `created_at`, `updated_at`) VALUES
-(1, 'ေဒါက္တာအရွင္ေသာပါက၏ ေထရုပတၱိအက်ဥ္း', 1, 3, 'ေဒါက္တာအ႐ွင္ေသာပါက၏ ေထ႐ုပၸတၱိအက်ဥ္း', '<tbody>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၁။</td>\r\n<td valign=\"top\">အမည္</td>\r\n<td>အ႐ွင္ေသာပါက</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၂။</td>\r\n<td valign=\"top\">မိဘအမည္</td>\r\n<td>ဦးေမာင္ေမာင္+ ေဒၚေအးၾကဴ</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၃။</td>\r\n<td valign=\"top\">ေမြးသကၠရာဇ္</td>\r\n<td>၁၃၃၃- ခုႏွစ္၊ တပို႔တြဲလဆန္း (၆) ရက္ (၂၁.၁.၁၉၇၂)ေသာၾကာေန႔</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၄။</td>\r\n<td valign=\"top\">ေမြးရပ္ဇာတိ</td>\r\n<td>ဧရာ၀တီတိုင္း၊ ေမာင္လၿမိဳင္ကၽြန္းၿမိဳ႕နယ္၊ေရွာက္ေခ်ာင္းေက်းရြာ</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၅။</td>\r\n<td valign=\"top\">လူမ်ိဳး</td>\r\n<td>ဗမာ</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၆။</td>\r\n<td valign=\"top\">ရဟန္းျဖစ္သည့္ခုႏွစ္သကၠရာဇ္ ႏွင့္ ေနရာ</td>\r\n<td>၁၃၅၃-ခု၊ တန္ခူးလဆန္း(၅)ရက္ (၇.၄.၁၉၉၂)အဂၤါေန႔။ ပန္းတေနာ္ၿမိဳ႕၊ ျမေတာင္စာသင္တိုက္၊ဧရာ၀တီတိုင္း။</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၇။</td>\r\n<td valign=\"top\">သာသနာ၀င္မွတ္တမ္းအမွတ္ (မွတ္ပံုတင္အမွတ္)</td>\r\n<td>၁၄/ပတန(သ) ၀၀၀၅၀၇</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၈။</td>\r\n<td valign=\"top\">ပညာအရည္အခ်င္း (ေအာင္ျမင္သည့္စာေမးပြဲမ်ား)</td>\r\n<td>\r\n<ul>\r\n<li class=\"first-child\">၁၃၅၁ (၁၉၉၀) ခုႏွစ္တြင္ ပထမႀကီးတန္းကို ေအာင္ျမင္ခဲ့သည္၊</li>\r\n<li>၁၃၅၇ (၁၉၉၆) ခုႏွစ္တြင္ “သာသနဓဇဓမၼာစရိယ” ဘြဲ႕၊</li>\r\n<li>၁၃၆၂ (၂၀၀၀) ခုႏွစ္တြင္ အိႏိၵယႏိုင္ငံ။ မဂဓတကၠသိုလ္မွ (M.A) မဟာ၀ိဇၹာဘြဲ႕၊</li>\r\n<li class=\"last-child\">၁၃၆၆ (၂၀၀၄) ခုႏွစ္တြင္ အိႏၵိယႏိုင္ငံ။ မဂဓတကၠသိုလ္မွ (Ph.D) ပါရဂူဘြဲ႕(“Analysis of the Moral Character (Sila) in Buddhism”) က်မ္းေခါင္းစဥ္ျဖင့္ က်မ္းစာျပဳစုၿပီး ပါရဂူဘြဲ႕ကို ရရိွခဲ့ျခင္းျဖစ္သည္)</li>\r\n</ul>\r\n<div><a id=\"s1\"></a> <img alt=\"\" src=\"file:///D:/Work/ZTW/www.jetavam.com/images/stories/dhamarsiriya.jpg\" border=\"0\" width=\"70\"></div>\r\n<div><a id=\"s2\"></a> <img alt=\"\" src=\"file:///D:/Work/ZTW/www.jetavam.com/images/stories/master.jpg\" border=\"0\" width=\"70\"></div>\r\n<div><a id=\"s3\"></a> <img alt=\"\" src=\"file:///D:/Work/ZTW/www.jetavam.com/images/stories/phd.jpg\" border=\"0\" width=\"70\"></div>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၉။</td>\r\n<td valign=\"top\">ပညာသင္ၾကားခဲ့ေသာေနရာမ်ား</td>\r\n<td>\r\n<ul>\r\n<li class=\"first-child\">ေမာ္လၿမိဳင္ကၽြန္းၿမိဳ႕နယ္ ၿငိမ္းဦးေက်ာင္းတိုက္၊</li>\r\n<li>ပန္းတေနာ္ၿမိဳ႕ ျမေတာင္စာသင္တိုက္၊</li>\r\n<li>အင္းစိန္ၿမိဳ႕နယ္ ရြာမပရိယတိၱ စာသင္တိုက္၊</li>\r\n<li>ရန္ကင္းၿမိဳ႕နယ္ ပဥၥနိကာယ သာသနာ့ဗိမာန္ေက်ာင္းတိုက္</li>\r\n<li class=\"last-child\">အိႏိၵယႏိုင္ငံ၊ ဘီဟာျပည္နယ္၊ မဂဓ တကၠသိုလ္</li>\r\n</ul>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၁၀။</td>\r\n<td valign=\"top\">သာသနာေရးဆိုင္ရာ ေဆာင္ရြက္ခ်က္အက်ဥ္း</td>\r\n<td>\r\n<ul>\r\n<li class=\"first-child\">ဘုန္းေတာ္ႀကီးမ်ားအတြက္ ကြန္ပ်ဴတာ၊ အဂၤလိပ္စာ၊ ပရိယတၱိစာေပမ်ား သင္ၾကားပို႕ခ်ေပးျခင္း။</li>\r\n<li>(၁၀)တန္း ဘာသာစံု အခမဲ့ပညာဒါနသင္တန္းေက်ာင္းဖြင့္လွစ္သင္ၾကားေပးျခင္း။</li>\r\n<li>ေက်ာင္းသားလူငယ္မ်ားအတြက္ ေႏြရာသီယဥ္ေက်းမွုႏွင့္အဂၤလိပ္စာ ပညာဒါနသင္တန္းမ်ား ဖြင္လွစ္သင္ၾကားေပးျခင္း။</li>\r\n<li>ေဇတ၀န္ဓမၼာ႐ံုေက်ာင္းတိုက္တြင္ ပဓာနနာယကတာ၀န္ျဖင့္ တရားေဟာျခင္း၊ စာေပေရးသားျပဳစုျခင္း၊ စာေပမ်ားပို႕ခ်ျခင္း။</li>\r\n<li>တစ္လလွ်င္ (၂)ႀကိမ္ အခမဲ့ က်န္းမာေရးကုသမႈေပးေနျခင္း။</li>\r\n<li class=\"last-child\">ျပည္နယ္တိုင္းအသီးသီးသို႔ ႂကြေရာက္၍ တရားဓမၼမ်ား ေဟာေျပာျပသျခင္း။</li>\r\n</ul>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၁၁။</td>\r\n<td valign=\"top\">ယခုလက္ရိွသီတင္းသံုးရာေနရာဌာန</td>\r\n<td>ေဇတ၀န္ဓမၼာ႐ံုေက်ာင္းတိုက္၊ ျမသီတာရပ္ကြက္ (ဘိုၿခံ) ပ်ဥ္းမပင္အုပ္စု၊ မဂၤလာဒံုၿမိဳ႕နယ္၊ ရန္ကုန္ၿမိဳ႕၊<br>\r\nဖုန္း = ၀၁-၆၃၆၈၈၆/ ၀၉-၈၅၉၈၀၀၁</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၁၂။</td>\r\n<td valign=\"top\">စာေပေရးသားျပဳစုျခင္း</td>\r\n<td>\r\n<ol>\r\n<li>Analysis of the Moral Character (Sila) in Buddhism</li>\r\n<li>Fundamental English Grammar(အေျခခံအဂၤလိပ္သဒၵါက်မ္း) စေသာက်မ္းစာအုပ္ အႀကၤီးအေသး စုစုေပါင္း (၂၀)အုပ္ထုတ္ေ၀ၿပီးျဖစ္ပါသည္၊ ဆက္လက္ထုတ္လွ်က္ရိွပါသည္။</li>\r\n</ol>\r\n</td>\r\n</tr>\r\n</tbody>', 'saryartaw.png', '', 'saryartaw1.png', '1', '2', '3', '4', '5', '2017-12-04 08:19:59', '2017-12-05 02:32:54'),
+(1, 'ေဒါက္တာအရွင္ေသာပါက၏ ေထရုပတၱိအက်ဥ္း', 1, 3, '<table>\r\n	<tbody>\r\n		<tr>\r\n		<td align=\"center\" valign=\"top\">၁။</td>\r\n		<td valign=\"top\">အမည္</td>\r\n		<td>အ႐ွင္ေသာပါက</td>\r\n		</tr>\r\n		<tr>\r\n		<td align=\"center\" valign=\"top\">၂။</td>\r\n		<td valign=\"top\">မိဘအမည္</td>\r\n		<td>ဦးေမာင္ေမာင္+ ေဒၚေအးၾကဴ</td>\r\n		</tr>\r\n		<tr>\r\n		<td align=\"center\" valign=\"top\">၃။</td>\r\n		<td valign=\"top\">ေမြးသကၠရာဇ္</td>\r\n		<td>၁၃၃၃- ခုႏွစ္၊ တပို႔တြဲလဆန္း (၆) ရက္ (၂၁.၁.၁၉၇၂)ေသာၾကာေန႔</td>\r\n		</tr>\r\n		<tr>\r\n		<td align=\"center\" valign=\"top\">၄။</td>\r\n		<td valign=\"top\">ေမြးရပ္ဇာတိ</td>\r\n		<td>ဧရာ၀တီတိုင္း၊ ေမာင္လၿမိဳင္ကၽြန္းၿမိဳ႕နယ္၊ေရွာက္ေခ်ာင္းေက်းရြာ</td>\r\n		</tr>\r\n		<tr>\r\n		<td align=\"center\" valign=\"top\">၅။</td>\r\n		<td valign=\"top\">လူမ်ိဳး</td>\r\n		<td>ဗမာ</td>\r\n		</tr>\r\n		<tr>\r\n		<td align=\"center\" valign=\"top\">၆။</td>\r\n		<td valign=\"top\">ရဟန္းျဖစ္သည့္ခုႏွစ္သကၠရာဇ္ ႏွင့္ ေနရာ</td>\r\n		<td>၁၃၅၃-ခု၊ တန္ခူးလဆန္း(၅)ရက္ (၇.၄.၁၉၉၂)အဂၤါေန႔။ ပန္းတေနာ္ၿမိဳ႕၊ ျမေတာင္စာသင္တိုက္၊ဧရာ၀တီတိုင္း။</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n', '<tbody>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၇။</td>\r\n<td valign=\"top\">သာသနာ၀င္မွတ္တမ္းအမွတ္ (မွတ္ပံုတင္အမွတ္)</td>\r\n<td>၁၄/ပတန(သ) ၀၀၀၅၀၇</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၈။</td>\r\n<td valign=\"top\">ပညာအရည္အခ်င္း (ေအာင္ျမင္သည့္စာေမးပြဲမ်ား)</td>\r\n<td>\r\n<ul>\r\n<li class=\"first-child\">၁၃၅၁ (၁၉၉၀) ခုႏွစ္တြင္ ပထမႀကီးတန္းကို ေအာင္ျမင္ခဲ့သည္၊</li>\r\n<li>၁၃၅၇ (၁၉၉၆) ခုႏွစ္တြင္ “သာသနဓဇဓမၼာစရိယ” ဘြဲ႕၊</li>\r\n<li>၁၃၆၂ (၂၀၀၀) ခုႏွစ္တြင္ အိႏိၵယႏိုင္ငံ။ မဂဓတကၠသိုလ္မွ (M.A) မဟာ၀ိဇၹာဘြဲ႕၊</li>\r\n<li class=\"last-child\">၁၃၆၆ (၂၀၀၄) ခုႏွစ္တြင္ အိႏၵိယႏိုင္ငံ။ မဂဓတကၠသိုလ္မွ (Ph.D) ပါရဂူဘြဲ႕(“Analysis of the Moral Character (Sila) in Buddhism”) က်မ္းေခါင္းစဥ္ျဖင့္ က်မ္းစာျပဳစုၿပီး ပါရဂူဘြဲ႕ကို ရရိွခဲ့ျခင္းျဖစ္သည္)</li>\r\n</ul>\r\n<div><a id=\"s1\"></a> <img alt=\"\" src=\"file:///D:/Work/ZTW/www.jetavam.com/images/stories/dhamarsiriya.jpg\" border=\"0\" width=\"70\"></div>\r\n<div><a id=\"s2\"></a> <img alt=\"\" src=\"file:///D:/Work/ZTW/www.jetavam.com/images/stories/master.jpg\" border=\"0\" width=\"70\"></div>\r\n<div><a id=\"s3\"></a> <img alt=\"\" src=\"file:///D:/Work/ZTW/www.jetavam.com/images/stories/phd.jpg\" border=\"0\" width=\"70\"></div>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၉။</td>\r\n<td valign=\"top\">ပညာသင္ၾကားခဲ့ေသာေနရာမ်ား</td>\r\n<td>\r\n<ul>\r\n<li class=\"first-child\">ေမာ္လၿမိဳင္ကၽြန္းၿမိဳ႕နယ္ ၿငိမ္းဦးေက်ာင္းတိုက္၊</li>\r\n<li>ပန္းတေနာ္ၿမိဳ႕ ျမေတာင္စာသင္တိုက္၊</li>\r\n<li>အင္းစိန္ၿမိဳ႕နယ္ ရြာမပရိယတိၱ စာသင္တိုက္၊</li>\r\n<li>ရန္ကင္းၿမိဳ႕နယ္ ပဥၥနိကာယ သာသနာ့ဗိမာန္ေက်ာင္းတိုက္</li>\r\n<li class=\"last-child\">အိႏိၵယႏိုင္ငံ၊ ဘီဟာျပည္နယ္၊ မဂဓ တကၠသိုလ္</li>\r\n</ul>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၁၀။</td>\r\n<td valign=\"top\">သာသနာေရးဆိုင္ရာ ေဆာင္ရြက္ခ်က္အက်ဥ္း</td>\r\n<td>\r\n<ul>\r\n<li class=\"first-child\">ဘုန္းေတာ္ႀကီးမ်ားအတြက္ ကြန္ပ်ဴတာ၊ အဂၤလိပ္စာ၊ ပရိယတၱိစာေပမ်ား သင္ၾကားပို႕ခ်ေပးျခင္း။</li>\r\n<li>(၁၀)တန္း ဘာသာစံု အခမဲ့ပညာဒါနသင္တန္းေက်ာင္းဖြင့္လွစ္သင္ၾကားေပးျခင္း။</li>\r\n<li>ေက်ာင္းသားလူငယ္မ်ားအတြက္ ေႏြရာသီယဥ္ေက်းမွုႏွင့္အဂၤလိပ္စာ ပညာဒါနသင္တန္းမ်ား ဖြင္လွစ္သင္ၾကားေပးျခင္း။</li>\r\n<li>ေဇတ၀န္ဓမၼာ႐ံုေက်ာင္းတိုက္တြင္ ပဓာနနာယကတာ၀န္ျဖင့္ တရားေဟာျခင္း၊ စာေပေရးသားျပဳစုျခင္း၊ စာေပမ်ားပို႕ခ်ျခင္း။</li>\r\n<li>တစ္လလွ်င္ (၂)ႀကိမ္ အခမဲ့ က်န္းမာေရးကုသမႈေပးေနျခင္း။</li>\r\n<li class=\"last-child\">ျပည္နယ္တိုင္းအသီးသီးသို႔ ႂကြေရာက္၍ တရားဓမၼမ်ား ေဟာေျပာျပသျခင္း။</li>\r\n</ul>\r\n</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၁၁။</td>\r\n<td valign=\"top\">ယခုလက္ရိွသီတင္းသံုးရာေနရာဌာန</td>\r\n<td>ေဇတ၀န္ဓမၼာ႐ံုေက်ာင္းတိုက္၊ ျမသီတာရပ္ကြက္ (ဘိုၿခံ) ပ်ဥ္းမပင္အုပ္စု၊ မဂၤလာဒံုၿမိဳ႕နယ္၊ ရန္ကုန္ၿမိဳ႕၊<br>\r\nဖုန္း = ၀၁-၆၃၆၈၈၆/ ၀၉-၈၅၉၈၀၀၁</td>\r\n</tr>\r\n<tr>\r\n<td align=\"center\" valign=\"top\">၁၂။</td>\r\n<td valign=\"top\">စာေပေရးသားျပဳစုျခင္း</td>\r\n<td>\r\n<ol>\r\n<li>Analysis of the Moral Character (Sila) in Buddhism</li>\r\n<li>Fundamental English Grammar(အေျခခံအဂၤလိပ္သဒၵါက်မ္း) စေသာက်မ္းစာအုပ္ အႀကၤီးအေသး စုစုေပါင္း (၂၀)အုပ္ထုတ္ေ၀ၿပီးျဖစ္ပါသည္၊ ဆက္လက္ထုတ္လွ်က္ရိွပါသည္။</li>\r\n</ol>\r\n</td>\r\n</tr>\r\n</tbody>', 'saryartaw.png', '', 'saryartaw1.png', '', '', '', '', '', '2017-12-04 08:19:59', '2017-12-05 02:32:54'),
 (2, 'သာသနာျပဳ လုပ္ငန္းစဥ္မ်ား', 12, 13, '“ပရိယတိၱ၊ ပဋိပတၱိ၊ ပရဟိတ” ဟူ.ေသာ ဤ.ေက်ာင္းတိုက္၏ သာသနာ.ျပဳလုပ္ငန္းစဥ္သံုးရပ္ ထားရိွသည့္ အတိုင္း', '<b>ပရိယတၱိလုပ္ငန္းစဥ္မ်ား</b>\r\n<br>\r\nဓမၼာစရိယ သံဃာေတာ္မ်ားကို လက္ခံ၍ က်မ္းရင္းသံုးက်မ္းႏွင့္ အဂၤလိပ္စာ ဘာသာရပ္မ်ားကို စနစ္တက် သင္ၾကားေပးရန္ အစီအစဥ္ထားရိွသည္။ (မၾကာမီ အေကာင္အထည္ေဖၚပါမည္) ခုလက္ရိွအေနအထားတြင္ ပထမျပန္သံဃာေတာ္မ်ားအား ပရိယတၱိစာေပမ်ားသင္ၾကား ပို႕ခ်လွ်က္ရိွသည္။ ေနရာအခက္အခဲေၾကာင့္ အနည္းငယ္သာ လက္ခံႏိုင္ေသးသည္။ ေႏြရာသီ သႀကၤန္အၿပီးတြင္ သံဃာေတာ္မ်ားအတြက္ ကြန္ပ်ဴတာႏွင့္ အဂၤလိပ္စာ ဘာသာရပ္မ်ားကို (၁) လသင္တန္းအျဖစ္ ႏွစ္စဥ္ျပဳလုပ္ေပးရန္လည္း အစီအစဥ္ထားရိွပါသည္။</p>\r\n<br>\r\n\r\n<b>ပဋိပတၱိလုပ္ငန္းစဥ္မ်ား</b>\r\n<br>\r\nတစ္ႏွစ္လွ်င္္ အနည္းဆံုး (၂) ၾကိမ္မွ (၃) ၾကိမ္အထိ တရားစခန္းမ်ားဖြင့္လွစ္၍ ဝိပႆ နာ အားထုတ္ေစမည္ ျဖစ္ပါသည္။ (အေဆာက္အဦးမ်ား မျပည့္စံုေသး၍ လက္ရိွအေျခအေနမွာ မလုပ္ေဆာင္ႏိုင္ေသးပါ။ ၀ါတြင္းဥပုသ္ႏွင့္ သၾကၤန္တြင္း ေန႕တိုင္း မနက္ (၁၀)နာရီမွ (၁၁)နာရီအထိ တရားေဟာ တရားျပ တရားအားထုတ္ပါသည္၊ ဆရာေတာ္ကိုယ္တိုင္ ေဟာေျပာ ျပသလွ်က္ရွိပါသည္။ (ေယာဂီေဆာင္မ်ားရိွပါက စခန္းပြဲမ်ားျဖစ္ေအာင္ စီစဥ္မွာ ျဖစ္သည့္အတြက္ ေယာဂီေဆာင္လွဴလိုေသာ အလွဴရွင္မ်ားလည္း ဆက္သြယ္လွဴဒါန္းႏို္င္ၾကပါၿပီ)\r\n<br>\r\n', '', '', '', '', '', '', '', '', '2017-12-04 09:09:45', '2017-12-05 03:03:21'),
 (3, 'ပရဟိတလုပ္ငန္းစဥ္မ်ား', 12, 18, '<p>ပရဟိတလုပ္ငန္းစဥ္မ်ားအနက္ –</p>', '<p>ပရဟိတလုပ္ငန္းစဥ္မ်ားအနက္ –</p>\r\n<ol>\r\n<li><p align=\"justify\">ပညာေရးက႑အတြက္ (၁၀) တန္း ေက်ာင္းသား/သူမ်ား အတြက္ဘာသာစံု အခမဲ့သင္တန္းဖြင့္လွစ္၍ တာ၀န္ယူသင္ၾကားေပးလွ်က္ ရိွပါသည္။ အထူးသျဖင့္ မိဘေတြက ေက်ာင္းၿပီးေအာင္ (၁၀-တန္းေအာင္ျမင္ေအာင္) မထားႏိုင္ေသာ ႏွစ္က်ေက်ာင္းသားမ်ား ျဖစ္ပါသည္။ အဂၤလိပ္သဒၵါ၊ စကားေျပာႏွင့္ ကြန္ျပဴတာတို႕ကိုလည္း သင္ၾကားေပးပါသည္၊ အျခားေသာ ႏိုင္ငံတကာဘာသာရပ္မ်ားကိုလည္း တိုးခ်ဲ႕သင္ၾကားေပးရန္ ရည္ရြယ္ထားပါသည္။</p>\r\n</li>\r\n<li><p align=\"justify\">က်န္းမာေရးက႑အတြက္ – တစ္လလွ်င္ (၂) ၾကိမ္ (ဗုဒၶဟူးေန႕တစ္ပါတ္ျခား) က်န္းမာေရးအလွဴေတာ္အျဖစ္ အခမဲ့ ကုသေပးလွ်က္ ရိွေနပါသည္။ ေရႊျပည္ဟိန္းေဆးခန္းမွ ဆရာ၀န္မ်ား လာေရာက္၍ ကုသေပးၾကပါသည္။ ေရွ႕ဆက္၍ ကိုယ္ပိုင္ေဆးခန္းျဖင့္ အပါတ္စဥ္ ကုသေပးႏိုင္ေအာင္ ေဆာင္ရြက္သြားမည္ ျဖစ္ပါသည္။ (ဤလုပ္ငန္းစဥ္အတြက္ ေဆးခန္းတစ္ေဆာင္ မျဖစ္မေန ေဆာက္လုပ္ရန္ အလွဴမ်ားလိုအပ္ေနပါသည္)။</p>\r\n</li>\r\n<li><p align=\"justify\">ဘာသာေရး က႑အတြက္ – ျမတ္စြာဘုရား၏ ျဖစ္ေတာ္စဥ္ႏွင့္ ေဟာၾကားေတာ္မူခဲ့ေသာ သုတ္ေတာ္ ေဒသနာေတာ္မ်ားကို ရြက္ဖတ္ပူေဇာ္ရာတြင္ အသံထြက္ မွန္မွန္ကန္ကန္ႏွင့္ ရြတ္ပြားႏိုင္ရပါမည္။ ထို႕အျပင္ သုတ္ေတာ္ ေဒသနာေတာ္တို့၏ အနက္အဓိပါၸယ္တို႕ကို သိရိွၿပီး ရြတ္ဖတ္ပါက ၾကည္ညိဳဖြယ္ ဂုဏ္ေတြကို ေတြ႕ျမင္ႏိုင္ၿပီး ပို၍အက်ိဳးႀကီးေစႏိုင္ပါသည္။ ထိုကဲ့သို႕ အက်ိဳးရိွေစမႈကို ရည္ရြယ္၍ လူပုဂိၢဳလ္မ်ားအတြက္ ၀တ္ရြက္စဥ္ႏွင့္ ပါ႒ိဖတ္နည္းသင္တန္းကို ဖြင့္လွစ္သင္ၾကားေပးပါသည္။ ေရွးဆက္၍လည္း အဘိဓမၼာသင္တန္း၊ ၀ိသုဒၶိမဂ္သင္တန္း စသည္တို႕ကိုလည္း သင္ၾကားျပသေပးမည္ ျဖစ္ပါသည္။</p></li>\r\n<li><p align=\"justify\">လူမႈေရးက႑မ်ား – လူသားခ်င္း စာနာေထာက္ထားေသာအားျဖင့္ သဘာ၀ေဘးဒဏ္ စေသာအႏၱရာယ္မ်ား က်ေရာက္ေနေသာ ပုဂၢိဳလ္မ်ားအား စြမ္းႏိုင္သေလာက္ ကူညီေစာင့္ေရွာက္ေပးပါသည္။ အျခားအဆင္မေျပသည့္ ကိစၥရပ္မ်ားတြင္လည္း အမွန္တကယ္လိုအပ္ပါက ကူညီေဆာင္ရြက္ ေပးလွ်က္ရိွပါသည္။ ၿပီးခဲ့သည့္အခ်ိန္ေတြက နာဂစ္မုန္တိုင္းဒဏ္ခံစားေနရေသာ ဧရာ၀တီတိုင္းေဒသတြင္ နာဂစ္ေၾကာင့္ ၿပိဳက် ပ်က္စီးသြားေသာ ဘုန္းေတာ္ႀကီးေက်ာင္းမ်ားအား ျပဳျပင္ေပးျခင္း၊ စာသင္ေက်ာင္းမ်ားအား အသစ္တည္ေဆာက္ေပးျခင္း (၂၅-ေက်ာင္း ေဆာက္လုပ္ၿပီးပါၿပီ)၊ ေက်းလက္ေဆးခန္း တည္ေဆာက္ေပးျခင္း (၂- ေဆာင္ ေဆာက္လုပ္ၿပီး)၊ လမ္းတံတား တည္ေဆာက္ေပးျခင္း (တံတား႐ွည္ ၂-စင္း ေဆာက္ၿပီး)၊ အ၀ီစိေရတြင္း ေရကန္မ်ား တူးေဖာ္ေပးျခင္း (ေပ-၅၀၀ႏွင့္အထက္ တြင္း၊ စက္၊ ေရကန္အပါအ၀င္ ၆၀ တူးေဖာ္ေပးၿပီး) စေသာ အက်ိဳးျပဳလုပ္ငန္းမ်ားကို အလွဴ႐ွင္မ်ား၊ လွဴဒါန္းလိုသူမ်ားႏွင့္ ပူးေပါင္းေဆာင္႐ြက္ေပးလွ်က္ ႐ွိပါသည္။ ထို႔အျပင္ မဂၤလာဒံုၿမိဳ႕နယ္ နာေရးကူညီမႈအသင္းတြင္ အလုပ္အမႈေဆာင္အျဖစ္လည္းေကာင္း၊ တြံေတးၿမိဳ႕ ပရိယတၱိ သာသနာ့ဥပဌာကအဖြဲ႕၏ ဩ၀ါဒစရိယ အျဖစ္လည္းေကာင္း ေဆာင္႐ြက္ေပးလွ်က္႐ွိပါသည္ သို႔ပါ၍ ဆရာေတာ္၏ ဘာသာေရး၊ လူမႈေရး၊ က်န္းမာေရး၊ ပညာေရး စေသာပရဟိတလုပ္ငန္း/သာသနာျပဳ လုပ္ငန္းမ်ားကို စိတ္ပါ၀င္စားမႈ႐ွိပါက လာေရာက္ပူးေပါင္းေဆာင္႐ြက္ျခင္း၊ ပါ၀င္လွဴဒါန္းျခင္းမ်ား လုပ္ေဆာင္ႏိုင္ၾကပါသည္။ဆက္သြယ္လွဴဒါန္းႏိုင္ၾကပါၿပီ။</p>\r\n</li>\r\n</ol>\r\n<h4>ကေလးမ်ားသီးသန္႔</h4>\r\n<p align=\"justify\">၁၃-ႏွစ္ေအာက္ ကေလးမ်ားအတြက္ ႏွစ္စဥ္ ေတာင္သူလယ္သမားေန႔ (မတ္လ ၂-ရက္)ေန႔တြင္ တစ္ေန႔တာ အာနာပါနတရားသင္တန္းကို က်င္းပေပးလွ်က္႐ိွပါသည္၊ ဆရာႀကီး ဦးဂုိအင္ကာ၏ ဓမၼေဇာတိရိပ္သာမွ တရားျပဆရာ/မ မ်ားလာေရာက္ျပသေပးပါသည္။</p>\r\n<p align=\"justify\">ယေန႔ လူငယ္မ်ား လိမၼာယဥ္ေက်းေစရန္အတြက္ ယဥ္ေက်းမႈသင္တန္းမ်ား၊ ယဥ္ေက်းလိမၼာသင္ခန္းစာ သင္တန္းမ်ားႏွင့္ အဂၤလိပ္စာ သင္တန္းမ်ားကို ႏွစ္စဥ္ေႏြရာသီ ေက်ာင္းပိတ္ရက္မ်ားတြင္ ဖြင့္လွစ္ သင္ၾကား ေပးလွ်က္႐ွိပါသည္။ ေရွ႕ဆက္လက္၍လည္း အပတ္စဥ္ တနဂၤေႏြ သင္တန္းေက်ာင္း (Sunday School) ကို ဖြင့္လွစ္၍ ေက်ာင္းသား လူငယ္မ်ားအတြက္ ဗုဒၶဘာသာ ဗုဒၶ၀င္သမိုင္းႏွင့္ ဇာတ္ေတာ္နိပါတ္ေတာ္ မ်ားကို အဂၤလိပ္စာ အရည္အေသြးပါ ျပည့္မီေစရန္ ျမန္မာ-အဂၤလိပ္ (၂) ဘာသာျဖင့္ သင္ၾကားေပးရန္ ရည္႐ြယ္ထားပါသည္။</p>', '', '', '', '', '', '', '', '', '2017-12-04 09:45:21', '2017-12-05 03:27:10'),
 (236, 'သာသနာျပဳစြမ္းရည္ ျမွင့္တင္ေရးသင္တန္း', 12, 14, '<h3>သံဃာမ်ားေက်ာင္းတိုက္ဝင္ေရာက္ျခင္း</h3>', '<h4>ေက်ာင္းတိုက္၌ ေနထိုင္လိုေသာသံဃာေတာ္မ်ား</h4>\r\n<p>ေက်ာင္းတိုက္၌ အတြင္းေနအျဖစ္ ေနထိုင္လိုေသာ သံဃာေတာ္မ်ားသည္ ႏွစ္စဥ္ သၾကၤန္ၿပီးခ်ိန္၌ သံဃာေတာ္မ်ား အတြက္ ၀င္ခြင့္ေဖါင္မ်ား စတင္လက္ခံပါမည္။ သံဃာလက္ခံရက္၊ ၀င္ခြင့္ေလွ်ာက္လြာ တင္သြင္းရမည့္ရက္မ်ားကို ေက်ာင္းတိုက္၌ လာေရာက္စံုစမ္းရပါမည္။ ဖုန္းျဖင့္လည္း စံုစမ္းႏိုင္ပါသည္။ အင္တာနက္ အသံုးျပဳသူမ်ားသည္ ေက်ာင္းတိုက္ ၀က္ဘ္ဆိုက္တြင္ ၾကည့္႐ႈႏိုင္ပါသည္၊ အင္တာနက္တြင္ ၀င္ခြင့္တင္ရမည့္ရက္၊ သံဃာလက္ခံမည့္ရက္၊ ေက်ာင္းတိုက္သို႕လာေရာက္ၾကရမည့္ရက္၊ ေက်ာင္းတိုက္၌ေနခြင့္ရေသာ သံဃာစာရင္းမ်ားကို ေၾကညာေပး သြားမည္ ျဖစ္ပါသည္။ ထို႕အျပင္ ၀င္ခြင့္္ေျဖဆိုျခင္း၊ လူေတြ႕စစ္ေဆးခံယူျခင္းမ်ားလိုအပ္ပါက ထည့္သြင္း ေၾကညာေပးပါမည္။</p>', 'saryartaw.png', '', 'saryartaw1.png', '', '', '', '', '', '2017-12-04 10:08:46', '2017-12-05 02:45:56'),
@@ -266,7 +316,15 @@ INSERT INTO `posts` (`id`, `title`, `main_category_id`, `sub_category_id`, `shor
 (276, 'ဦးျမ+ေဒၚလွ', 16, 0, 'ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္', 'ႏွစ္စဥ္ရာသက္ပန္ေန႔ဆြမ္း အလွဴရွင္', 'received_482375595464955.jpeg', '', '', '', '', '', '', '', '2017-12-06 06:49:59', '2017-12-06 06:49:59'),
 (277, 'ဦးေမာင္ေမာင္', 17, 0, 'တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား', 'တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား', 'received_482375595464955.jpeg', '', '', '', '', '', '', '', '2017-12-06 07:20:25', '2017-12-06 07:20:25'),
 (278, 'ဦးျမင့္ေအာင္', 17, NULL, 'တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား', 'တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား', '', '', '', '', '', '', '', '', '2017-12-06 07:35:16', '2017-12-06 07:35:46'),
-(279, 'ဦးမင္းေအာင္', 17, 0, 'တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား', 'တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား', 'featured_img3.jpg', '', '', '', '', '', '', '2017-12-21', '2017-12-06 07:41:10', '2017-12-06 07:41:10');
+(279, 'ဦးမင္းေအာင္', 17, 0, 'တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား', 'တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား', 'featured_img3.jpg', '', '', '', '', '', '', '2017-12-21', '2017-12-06 07:41:10', '2017-12-06 07:41:10'),
+(280, 'စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ', 15, 0, 'စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ', 'စာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာစာသင္တုိက္ စာသင္သား မ်ားဆုိင္ရာ', 'sag.jpg', '', '', '', '', '', '', '', '2017-12-07 07:49:51', '2017-12-07 07:49:51'),
+(282, 'ေဇတ၀န္ဓမၼာရုံေက်ာင္းတုိက္', 1, 20, 'ေဒါက္တာအ႐ွင္ေသာပါက', 'ေဒါက္တာအ႐ွင္ေသာပါက', 'saryartaw1.png', '', '', '', '', '', '', '', '2017-12-07 08:22:45', '2017-12-07 08:22:45'),
+(283, 'ေဒါက္တာအ႐ွင္ေသာပါက', 1, 20, 'ေဒါက္တာအ႐ွင္ေသာပါက', 'ေဒါက္တာအ႐ွင္ေသာပါက', 'saryartaw1.png', '', '', '', '', '', '', '', '2017-12-07 08:23:15', '2017-12-07 08:23:15'),
+(284, 'ေဒါက္တာအ႐ွင္ေသာပါက', 1, 20, 'ေဒါက္တာအ႐ွင္ေသာပါက', 'ေဒါက္တာအ႐ွင္ေသာပါက', 'saryartaw.png', '', '', '', '', '', '', '', '2017-12-07 08:23:35', '2017-12-07 08:23:35'),
+(285, 'slider', 1, 20, 'slider', 'slider', 'mdy.jpg', '', '', '', '', '', '', '', '2017-12-07 09:22:04', '2017-12-07 09:22:04'),
+(286, 'slider1', 1, 20, 'slider', 'slider', 'ygn1.jpeg', '', '', '', '', '', '', '', '2017-12-07 09:23:52', '2017-12-07 09:23:52'),
+(287, 'slider3', 1, 20, 'slider', 'slider', 'ygn.jpeg', '', '', '', '', '', '', '', '2017-12-07 09:25:59', '2017-12-07 09:25:59'),
+(288, 'slider4', 1, 20, 'sss', 'dd', 'mdy.jpg', '', '', '', '', '', '', '', '2017-12-07 09:26:45', '2017-12-07 09:26:45');
 
 -- --------------------------------------------------------
 
@@ -292,14 +350,16 @@ CREATE TABLE `postsmeta` (
 CREATE TABLE `student_registration_form` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `father_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `father_nrc` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `passed_school` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `roll_no` int(11) NOT NULL,
+  `f_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `m_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `race` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reg` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `birth_date` date NOT NULL,
+  `nrc` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone_no` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gender` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `passed_date_school` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_attend` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -308,8 +368,8 @@ CREATE TABLE `student_registration_form` (
 -- Dumping data for table `student_registration_form`
 --
 
-INSERT INTO `student_registration_form` (`id`, `name`, `father_name`, `father_nrc`, `passed_school`, `roll_no`, `phone_no`, `email`, `gender`, `address`, `created_at`, `updated_at`) VALUES
-(1, 'mgmg', 'U Mya', '12/maapa(N)12345', 'Mandalay', 2, '0912345678', 'umya@gmail.com', 'male', '', NULL, NULL);
+INSERT INTO `student_registration_form` (`id`, `name`, `f_name`, `m_name`, `race`, `reg`, `birth_date`, `nrc`, `phone_no`, `address`, `passed_date_school`, `is_attend`, `created_at`, `updated_at`) VALUES
+(2, 'ေမာင္ေမာင္', 'ဦးလွ', 'ေဒၚျမ', 'ဗမာ', 'ဗုဒၵၵ', '1998-10-20', '၁၂/မအပ(နိုင္)၁၂၃၄၅၆', '၀၉၃၈၇၄၈၃၄၇၃၈', 'ရန္ကုန္', '၂၀၁၄။မအူပင္၊အထက(၆)', 'မတက္ေရာက္ဖူးပါ', '2017-12-10 07:48:20', '2017-12-10 07:48:20');
 
 -- --------------------------------------------------------
 
@@ -333,18 +393,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@gmail.com', '$2y$10$XfoY7Vweu.o0dKQrZUIeNuhwpyhVwmoID4jPPMgBnOBl3vJouXs2O', 1, 'zF8oZ97kpO9qYXKrajU66hcOlDdye7Ndtl9LGnIzMTcGg6I2Ys7feZCX4SST', NULL, NULL),
+(1, 'Admin', 'admin@gmail.com', '$2y$10$XfoY7Vweu.o0dKQrZUIeNuhwpyhVwmoID4jPPMgBnOBl3vJouXs2O', 1, 'hPSqNjuaE6NC6gAu5Nw6SpeCN1buey50Xqb9OHqJtj7EPv2AFSpwiTdcCE5L', NULL, NULL),
 (2, 'Customer', 'customer@gmail.com', '$2y$10$njN15Jc4SNvTpALNNwhdZ.BKrNqnlxAd/qKOsZETXpPwxHc5M/Eq2', 0, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `book_form`
---
-ALTER TABLE `book_form`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `category`
@@ -366,6 +420,12 @@ ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `monk_entrance_form`
+--
+ALTER TABLE `monk_entrance_form`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `monk_registration_form`
 --
 ALTER TABLE `monk_registration_form`
@@ -376,6 +436,12 @@ ALTER TABLE `monk_registration_form`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `people`
+--
+ALTER TABLE `people`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `posts`
@@ -393,8 +459,7 @@ ALTER TABLE `postsmeta`
 -- Indexes for table `student_registration_form`
 --
 ALTER TABLE `student_registration_form`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `student_registration_form_email_unique` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -408,22 +473,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `book_form`
---
-ALTER TABLE `book_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `contact_form`
 --
 ALTER TABLE `contact_form`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -432,16 +491,28 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT for table `monk_entrance_form`
+--
+ALTER TABLE `monk_entrance_form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `monk_registration_form`
 --
 ALTER TABLE `monk_registration_form`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `people`
+--
+ALTER TABLE `people`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=280;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=289;
 
 --
 -- AUTO_INCREMENT for table `postsmeta`
@@ -453,7 +524,7 @@ ALTER TABLE `postsmeta`
 -- AUTO_INCREMENT for table `student_registration_form`
 --
 ALTER TABLE `student_registration_form`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
