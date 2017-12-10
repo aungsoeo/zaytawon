@@ -286,7 +286,17 @@
           <a href="{{ route('admin.post') }}" title="Post"><i class="glyphicon glyphicon-pushpin"></i> <span class="menu-item-parent">Post</span></a>
         </li>
         <li class="">
-          <a href="{{ route('admin.member') }}" title="Member"><i class="fa fa-user"></i> <span class="menu-item-parent">Member</span></a>
+          <a href="{{ route('admin.student') }}" title="ကြန္ပ်ဴတသင္တန္းသားမ်ား"><i class="fa fa-user"></i> <span class="menu-item-parent">ကြန္ပ်ဴတသင္တန္းသားမ်ား</span></a>
+        </li>
+        <li class="">
+          <a href="{{ route('admin.sarthinthar') }}" title="စာသင္သားသံဃာမ်ား"><i class="fa fa-user"></i> <span class="menu-item-parent">စာသင္သားသံဃာမ်ား</span></a>
+        </li>
+       
+        <li class="">
+          <a href="{{ route('admin.people') }}" title="တရားပဲြပင့္ေလွ်ာက္သူမ်ား"><i class="fa fa-user"></i> <span class="menu-item-parent">တရားပဲြပင့္ေလွ်ာက္သူမ်ား</span></a>
+        </li>
+        <li class="">
+          <a href="{{ route('admin.သင္တန္းသားမ်ား') }}" title="သင္တန္းသားမ်ား"><i class="fa fa-user"></i> <span class="menu-item-parent">သင္တန္းသားမ်ား </span></a>
         </li>
 
         <li class="">

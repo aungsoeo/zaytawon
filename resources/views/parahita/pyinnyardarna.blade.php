@@ -13,6 +13,13 @@
       <!-- main body -->
       <!-- ################################################################################################ -->
       <div class="content three_quarter first"> 
+        <!-- for success message -->
+        @if ($message = Session::get('success'))
+          <div class="alert-success" style=" display: block; background: #efefef;
+  color: green; ">
+              <p >{{ $message }}</p>
+          </div>
+         @endif
         <!-- ################################################################################################ -->
         @foreach($posts as $e)
           <h1 align="center"><b><font size="5px">{{$e->title}}</font></b></h1>
@@ -28,50 +35,101 @@
         @endforeach
         <h1 align="center">ကြန္ပ်ဴတာသင္တန္း ၀င္ခြင့္ေလွ်ာက္ထားလႊာပုံစံ</h1>
         <div id="comments">
-          <form action="#" method="post">
+          <form action="{{ route('pyinnyardarna.store') }}" method="post">
+            {!! csrf_field() !!}
             <div class="one_third first">
               <label for="name">အမည္ <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <input type="text" name="အမည္" id="name" value="{{old('အမည္')}}" size="22">
+              @if ($errors->has('အမည္'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('အမည္') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
-              <label for="email">အဖအမည္  <span>*</span></label>
-              <input type="text" name="email" id="email" value="" size="22">
+              <label for="f_name">အဖအမည္  <span>*</span></label>
+              <input type="text" name="အဖအမည္" id="f_name" value="{{old('အဖအမည္')}}" size="22">
+              @if ($errors->has('အဖအမည္'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('အဖအမည္') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
-              <label for="url">အမိအမည္ <span>*</span></label>
-              <input type="text" name="url" id="url" value="" size="22">
+              <label for="m_name">အမိအမည္ <span>*</span></label>
+              <input type="text" name="အမိအမည္" id="m_name" value="{{old('အမိအမည္')}}" size="22">
+              @if ($errors->has('အမိအမည္'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('အမိအမည္') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third first">
-              <label for="name">လူမ်ိဳး <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <label for="race">လူမ်ိဳး <span>*</span></label>
+              <input type="text" name="လူမ်ိဳး" id="race" value="{{old('လူမ်ိဳး')}}" size="22">
+              @if ($errors->has('လူမ်ိဳး'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('လူမ်ိဳး') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="one_third">
-              <label for="email">ကိုးကြယ္သည့္ဘာသာ  <span>*</span></label>
-              <input type="text" name="email" id="email" value="" size="22">
+              <label for="reg">ကိုးကြယ္သည့္ဘာသာ  <span>*</span></label>
+              <input type="text" name="ကိုးကြယ္သည့္ဘာသာ" id="reg" value="{{old('ကိုးကြယ္သည့္ဘာသာ')}}" size="22">
+              @if ($errors->has('ကိုးကြယ္သည့္ဘာသာ'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('ကိုးကြယ္သည့္ဘာသာ') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="block clear">
-              <label for="comment">ေနရပ္လိပ္စာ အျပည့္အစုံ</label>
-              <textarea name="comment" id="comment" cols="25" rows="3"></textarea>
+              <label for="address">ေနရပ္လိပ္စာ အျပည့္အစုံ</label>
+              <textarea name="ေနရပ္လိပ္စာ" id="address" cols="25" rows="3">{{old('ေနရပ္လိပ္စာ')}}</textarea>
             </div>
             <div class="one_third first">
-              <label for="name">ေမြးသကၠရာဇ္ <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <label for="birth_date">ေမြးသကၠရာဇ္ <span>*</span></label>
+              <input type="date" name="ေမြးသကၠရာဇ္" id="birth_date" value="{{old('ေမြးသကၠရာဇ္')}}" size="22">
+              @if ($errors->has('ေမြးသကၠရာဇ္'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('ေမြးသကၠရာဇ္') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="block clear">
-              <label for="email">ႏုိင္ငံသားစီစစ္ေရး (မွတ္ပုံတင္) အမွတ္  <span>*</span></label>
-              <input type="text" name="email" id="email" value="" size="22">
+              <label for="nrc">ႏုိင္ငံသားစီစစ္ေရး (မွတ္ပုံတင္) အမွတ္  <span>*</span></label>
+              <input type="text" name="ႏုိင္ငံသားစီစစ္ေရးအမွတ္" id="nrc" value="{{old('ႏုိင္ငံသားစီစစ္ေရးအမွတ္')}}" size="22">
+              @if ($errors->has('ႏုိင္ငံသားစီစစ္ေရးအမွတ္'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('ႏုိင္ငံသားစီစစ္ေရးအမွတ္') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="block clear">
               <label for="name">တကၠသိုလ္၀င္တန္း ေအာင္ျမင္ခဲ့သည့္ ခုႏွစ္သကၠရာဇ္ႏွင့္ ေအာင္ျမင္ခဲ့သည့္ေက်ာင္းအမည္ <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <input type="text" name="တကၠသိုလ္၀င္တန္းေအာင္ျမင္ခဲ့သည့္ခုႏွစ္သကၠရာဇ္ႏွင့္ေအာင္ျမင္ခဲ့သည့္ေက်ာင္းအမည္" id="name" value="{{old('တကၠသိုလ္၀င္တန္းေအာင္ျမင္ခဲ့သည့္ခုႏွစ္သကၠရာဇ္ႏွင့္ေအာင္ျမင္ခဲ့သည့္ေက်ာင္းအမည္')}}" size="22">
+              @if ($errors->has('တကၠသိုလ္၀င္တန္းေအာင္ျမင္ခဲ့သည့္ခုႏွစ္သကၠရာဇ္ႏွင့္ေအာင္ျမင္ခဲ့သည့္ေက်ာင္းအမည္'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('တကၠသိုလ္၀င္တန္းေအာင္ျမင္ခဲ့သည့္ခုႏွစ္သကၠရာဇ္ႏွင့္ေအာင္ျမင္ခဲ့သည့္ေက်ာင္းအမည္') }}</strong>
+                  </span>
+              @endif
             </div>      
             <div class="block clear">
               <label for="name">ယခင္ႏွစ္က ဤသင္တန္းေက်ာင္းတြင္ တက္ေရာက္ဖူးသည္ / မတက္ေရာက္ဖူးပါ <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <input type="text" name="ဤသင္တန္းေက်ာင္းတြင္တက္ေရာက္ဖူးျခင္းရွိမရွိ" id="name" value="{{old('ဤသင္တန္းေက်ာင္းတြင္တက္ေရာက္ဖူးျခင္းရွိမရွိ')}}" size="22">
+               @if ($errors->has('ဤသင္တန္းေက်ာင္းတြင္တက္ေရာက္ဖူးျခင္းရွိမရွိ'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('ဤသင္တန္းေက်ာင္းတြင္တက္ေရာက္ဖူးျခင္းရွိမရွိ') }}</strong>
+                  </span>
+              @endif
             </div>
             <div class="block clear">
               <label for="name">ဆက္သြယ္ရန္ဖုန္း <span>*</span></label>
-              <input type="text" name="name" id="name" value="" size="22">
+              <input type="text" name="ဆက္သြယ္ရန္ဖုန္း" id="name" value="{{old('ဆက္သြယ္ရန္ဖုန္း')}}" size="22">
+               @if ($errors->has('ဆက္သြယ္ရန္ဖုန္း'))
+                  <span class="help-block" style="color: #b94a48">
+                      <strong>{{ $errors->first('ဆက္သြယ္ရန္ဖုန္း') }}</strong>
+                  </span>
+              @endif
             </div>
             <div>
               <p>ဤသင္တန္းေက်ာင္း၌ ခ်မွတ္ထားေသာ စည္းမ်ဥ္းစည္းကမ္းမ်ားအတုိင္း လုိက္နာေနထုိင္ပါမည္။ အျပစ္ေပး၍ ဆုံးမသည္ကိုလည္း ၾကည္ျဖဴစြာ လက္ခံမည္ျဖစ္ပါေၾကာင္း ၀န္ခံကတိျပဳပါသည္။ </p>

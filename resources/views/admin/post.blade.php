@@ -68,15 +68,16 @@ $sub_category_id = (isset($_GET['sub_category_id']))? $_GET['sub_category_id'] :
 			<table class="table table-striped table-bordered table-hover"> 
 				<thead>
 					<tr>
-						<td>ID</td>
-						<td>Name</td>
+						<td width="40px;">NO</td>
+						<td width="700px;">Name</td>
 						<td><input type="submit" class="btn btn-xs btn-default" onclick="window.location.href='{{ route('admin.post.create') }}'" value="Add New" ></td>
 					</tr>					
 				</thead>
 				<tbody>
+					<?php $i=1 ?>
 					@foreach($posts as $post)			
 					<tr>
-						<td>{{$post->id}}</td>
+						<td>{{$i++}}</td>
 						<td>
 							<a href="{{ route('admin.post.show',$post->id) }}">{{$post->title}}</a>
 						</td>
