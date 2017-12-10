@@ -221,7 +221,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::findOrFail($id);
-        return view('news_show',compact('post'));
+        return view('admin.post_show',compact('post'));
     }
     //delete  post
     public function delete($id)
