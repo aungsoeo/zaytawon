@@ -64,8 +64,8 @@ class GalleryController extends Controller
                 'file'=> implode(",",$images)
                 );
         // var_dump($data); exit; 
-              $res=Gallery::create($data);
-            return view('admin.gallery');    
+              $res=Gallery::create($data); 
+            return back()->with('success','Gallery is successfully Uploaded!');   
       }
   // public function show()
   //   {

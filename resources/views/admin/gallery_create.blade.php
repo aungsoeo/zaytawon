@@ -14,6 +14,12 @@
 				<h1 class="page-title txt-color-blueDark"><i class="fa fa-list-ul"></i> Gallery Create</h1>
 			</div>	
 		</div>
+        <!-- for success message -->
+            @if ($message = Session::get('success'))
+              <div class="alert alert-success">
+                  <p>{{ $message }}</p>
+              </div>
+             @endif         
 		<div class="row">
 			<form class="form-horizontal"  id="multipleupload" enctype="multipart/form-data" role="form" action="{{ url('admin/gallery/store') }}" >
               <input type="hidden" name="_token" id="ctr_token" value="<?php echo csrf_token() ?>">
@@ -75,13 +81,12 @@
                             </span>
                         @endif
                     </div>
-                    <div class="progress-bar" style="width:0px;height: 3px;background: red;display: block; transition: width .3s;"></div>
                 </div>
 
                 <div class="form-group">
-
+                    <label class="col-md-2 control-label"> </label>
                     <div class="col-md-9">
-                        <div class="progress-bar" style="width:0px;height: 3px;background: red;display: block; transition: width .3s;"></div>
+                        <div class="progress-bar" style="width:0px;height: 10px;background: green;display: block; transition: width .3s;"></div>
                     </div>
                     
                 </div>
@@ -120,7 +125,10 @@
 
 @section('scripts')
 @parent
-
+<!-- your custom script here -->
+<script>
+  $('.alert-success').fadeIn().delay(1000).fadeOut();
+</script>
 <script type="text/javascript" src="{{ asset('js/getsubfrommain.js') }}"></script>
 <script type="text/javascript">
 
@@ -157,7 +165,8 @@
             processData: false,
             data: form_data,
             success : function(data){
-                alert('done');
+                alert('Gallery is successfully Uploaded!');
+                location.reload(); 
             }      
         });
     });
