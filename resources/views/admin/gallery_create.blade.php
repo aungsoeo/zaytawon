@@ -16,7 +16,7 @@
 		</div>
 		<div class="row">
 			<form class="form-horizontal"  id="multipleupload" enctype="multipart/form-data" role="form" action="{{ url('admin/gallery/store') }}" >
-                {!! csrf_field() !!}
+              <input type="hidden" name="_token" id="ctr_token" value="<?php echo csrf_token() ?>">
 				<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                     <label class="col-md-2 control-label">Post Title</label>
 
@@ -75,7 +75,17 @@
                             </span>
                         @endif
                     </div>
+                    <div class="progress-bar" style="width:0px;height: 3px;background: red;display: block; transition: width .3s;"></div>
                 </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-9">
+                        <div class="progress-bar" style="width:0px;height: 3px;background: red;display: block; transition: width .3s;"></div>
+                    </div>
+                    
+                </div>
+
 
                 <div class="form-group{{ $errors->has('short_description') ? ' has-error' : '' }}">
                     <label class="col-md-2 control-label">Gallery Description</label>
@@ -91,31 +101,16 @@
                     </div>
                 </div>
 
-                <div class="form-group{{ $errors->has('detail_description') ? ' has-error' : '' }}">
-                    <label class="col-md-2 control-label">Detail Description</label>
-
-                    <div class="col-md-9">
-                        <textarea class="form-control" style="height:300px" name="detail_description">{{ old('detail_description') }}</textarea>
-
-                        @if ($errors->has('detail_description'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('detail_description') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-6">
                         <br>
                         <button type="submit" class="btn btn-primary">
-                            Add
+                            Upload
                         </button>
                     </div>
                 </div>
             </form>
 		</div>
-        <div class="progress-bar" style="width:0px;height: 3px;background: red;display: block; transition: width .3s;"></div>
 		
 	</div>
     <input type="hidden" id="ctr_tocken" value="{{ csrf_token() }}" /> 
@@ -132,6 +127,11 @@
     $('#multipleupload').submit(function(e){
         e.preventDefault();
         var form_data=new FormData(this);
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+        })
         $.ajax({
             xhr: function(){
               var xhr = $.ajaxSettings.xhr();
@@ -158,8 +158,7 @@
             data: form_data,
             success : function(data){
                 alert('done');
-            },          
-            
+            }      
         });
     });
 </script>

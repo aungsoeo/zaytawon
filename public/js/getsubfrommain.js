@@ -1,4 +1,4 @@
-var url = "http://127.0.0.1:8000/admin/";
+var url = "http://localhost/zaytawon/public/admin/";
 $('#ctr_parent_id').change(function(){
 	$.ajax({
 		url : url+'post/getsub',

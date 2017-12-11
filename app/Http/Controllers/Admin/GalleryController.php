@@ -21,8 +21,8 @@ class GalleryController extends Controller
   public function index()
       {   
          $cat = Category::where('parent_id','=', '0')->pluck('title', 'id');
-           // $gallery=MultipleUpload::get();
-           return view('admin.gallery',['cat'=>$cat, 'subcat'=>array()]);
+           $gallery=Gallery::paginate(10);
+           return view('admin.gallery',['gallery'=>$gallery,'cat'=>$cat, 'subcat'=>array()]);
       }
 
        public function getsub(Request $r)
@@ -52,19 +52,19 @@ class GalleryController extends Controller
             foreach($input as $file)
             {
               $name = $file->getClientOriginalName();
-              $file->move('upload/gallery/', $name);
+              $file->move('image', $name);
               $images[] = $name;
             }
         }
         $data = array(
                 'main_category_id' => $request->main_category_id,
                 'sub_category_id' => ($request->sub_category_id)?$request->sub_category_id : '0',
-                'title'  => $product_name,
+                'title'  => $title,
                 'short_description' => $short_description,
                 'file'=> implode(",",$images)
                 );
-        // var_dump($data); 
-            Gallery::insert($data);
+        // var_dump($data); exit; 
+              $res=Gallery::create($data);
             return view('admin.gallery');    
       }
   // public function show()
@@ -99,4 +99,10 @@ class GalleryController extends Controller
   //         MultipleUpload::where('id', $request['id'])->update($insert_data);
   //        return view('photo.show');
   // }
+
+     public function delete($id)
+    {
+      $category = Gallery::find($id)->delete();
+      return redirect()->back()->with('success','Gallery is successfully deleted!');
+    }
 }

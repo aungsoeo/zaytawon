@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Model\Post;
 use App\Model\Category;
 use App\Model\People;
+use App\Model\Gallery;
 use App\Form;
 use App\Contact;
 use Validator;
@@ -87,6 +88,8 @@ class PostController extends Controller
 
         $data['slider'] = Post::where('main_category_id',1)->where('sub_category_id',20)->orderby('id', 'desc')->get();
 
+        $data['photo'] = Gallery::where('main_category_id',7)->where('sub_category_id',21)->orderby('id', 'desc')->paginate(10);
+
         $view = str_replace(' ', '', $category.$subview);
         // echo $view;
         // // // echo "<br>";
@@ -107,7 +110,8 @@ class PostController extends Controller
                 'donors'=>$data['donors'],
                 'people'=>$data['people'],
                 'education'=>$data['education'],
-                'slider'=>$data['slider']
+                'slider'=>$data['slider'],
+                'photo' =>$data['photo']
 
             ]);
     }

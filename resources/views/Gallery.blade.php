@@ -21,15 +21,31 @@
           <figure>
              <h1 align="center"><b>ဓာတ္ပုံမွတ္တမ္းမ်ား</b></h1>
             <ul class="nospace clear">
-              @foreach($posts as $photo)
-              <li class="one_quarter">
-                <a href="#">
-                  <img src="{{ asset('upload/posts/'.$photo->feature_photo) }}" alt="{{$photo->title}}" style="width: 155px; height: 155px;">
-                </a>
-              </li>
+              @foreach($photo as $p)
+              <figcaption style="color: #C90;text-shadow: -1px 1px 0px #fff;">
+                {!! $p->short_description !!}
+              </figcaption>
+              <br>
+             <?php
+                  $images = array();
+                  $images[] = explode(",", $p['file']);
+              ?>
+              <?php
+                for($i=0; $i<count($images[0]); $i++){
+              ?>
+                <li class="one_quarter">
+                  <a class="fancybox-buttons" data-fancybox-group="button" href="{{asset('image/'.$images[0][$i]) }}" title=" {!! $p->short_description !!}">
+                    <img src="{{asset('image/'.$images[0][$i])}}" height="35" width="30">
+                  </a>
+                </li>
+              <?php
+                      }
+              ?>
+                <br><hr>
               @endforeach
             </ul>
-            <figcaption>Gallery Description Goes Here</figcaption>
+
+
           </figure>
         </div>
         <!-- ################################################################################################ -->

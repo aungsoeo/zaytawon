@@ -49,18 +49,44 @@
 				<thead>
 					<tr>
 						<td width="50px;">NO</td>
-						<td>Title </td>
-						<td>Descripiton</td>
-						<td>Photo</td>
-						<td><input type="submit" class="btn btn-primary" onclick="window.location.href='{{ route('admin.gallery.create') }}'" value="Upload New" ></td>
+						<td width="150px;">Title </td>
+						<td width="250px;">Descripiton</td>
+						<td width="440px;">Photo</td>
+						<td><input type="submit" class="btn btn-primary" onclick="window.location.href='{{ route('admin.gallery.create') }}'" value="Add New" ></td>
 					</tr>					
 				</thead>
 				<tbody>
-					
+
+					<?php $j=1; ?>
+					@foreach($gallery as $g)
+					<tr>
+						<?php
+					        $images = array();
+					        $images[] = explode(",", $g['file']);
+				    	?>
+						<td>{{$j++}}</td>
+						<td>{{ $g->title }}</td>
+						<td >{{ $g->short_description }}</td>
+						<td>
+							<?php
+			                  for($i=0; $i<count($images[0]); $i++){
+			                ?>
+			               <img src="{{asset('image/'.$images[0][$i])}}" height="35" width="30">
+			               <?php
+			                  }
+			                ?>
+						</td>
+						<td>
+							<button class="btn btn-primary editphoto" value="{{$g->id}}">Edit</button>
+
+							 <input type="submit" class="btn btn-danger" onclick="window.location.href='{{ route('admin.gallery.delete',$g->id)}}'" value="Delete">
+						</td>
+					</tr>
+					@endforeach
 				</tbody>
 			</table>
 		</div>
-		
+		{{$gallery->render()}}
 	</div>
 </div>
 
