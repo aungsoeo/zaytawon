@@ -21,21 +21,21 @@
             <h1 align="center"><b><font size="5px">ေဒါက္တာအရွင္ေသာပါက ေရးသားျပဳစုေသာစာအုပ္မ်ား</font></b></h1>
             <h1 align="center">ေဇတ၀န္စာစဥ္စာအုပ္မ်ား</h1>
             <ul class="nospace clear">
-              @foreach($posts as $b)
-                
+              @foreach($posts as $b) 
                 <li class="one_quarter " >
-                  <a href="#">
-                      @if ($b->feature_photo!="")
+                      @if ($b->feature_photo!="" && $b->attach_file!="")
+                       <a href="{{route('viewfile',$b->attach_file)}}" target="_blank"> 
                         <img src="{{ asset('upload/posts/'.$b->feature_photo) }}" alt="{{$b->title}}" style="width: 155px; height: 155px;">
+                      </a>
                       @else
                         <img src="{{asset('images/demo/gallery/01.png')}}" alt="no_upload_photo" style="width: 155px; height: 155px;">
                       @endif
-                      <center>To Download</center>
-                  </a>
+                      <a href="{{route('downloadfile',$b->id)}}">
+                         <center><i class="fa fa-download" aria-hidden="true">&nbsp;Download</i></center> 
+                      </a>
                 </li> 
               @endforeach 
             </ul>
-            <figcaption>Gallery Description Goes Here</figcaption>
           </figure>
         </div>
          {{$posts->render()}}

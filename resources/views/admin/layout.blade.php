@@ -286,6 +286,9 @@
           <a href="{{ route('admin.post') }}" title="Post"><i class="glyphicon glyphicon-pushpin"></i> <span class="menu-item-parent">Post</span></a>
         </li>
         <li class="">
+          <a href="{{ route('admin.gallery') }}" title="Gallery"><i class="glyphicon glyphicon-picture"></i> <span class="menu-item-parent">Gallery</span></a>
+        </li>
+        <li class="">
           <a href="{{ route('admin.student') }}" title="ကြန္ပ်ဴတသင္တန္းသားမ်ား"><i class="fa fa-user"></i> <span class="menu-item-parent">ကြန္ပ်ဴတသင္တန္းသားမ်ား</span></a>
         </li>
         <li class="">

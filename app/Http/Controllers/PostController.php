@@ -119,7 +119,7 @@ class PostController extends Controller
 
         $data['donors'] = Post::where('main_category_id',16)->orderby('id', 'desc')->limit(10)->get();
 
-        $data['people'] = Post::where('main_category_id',17)->orderby('id', 'desc')->limit(10)->get();
+        $data['people'] = People::orderby('id', 'desc')->limit(5)->get();
 
         $data['education'] = Post::where('main_category_id',15)->orderby('id', 'desc')->limit(10)->get();
 
@@ -131,48 +131,6 @@ class PostController extends Controller
 
             ]);
     }
-
-     // member registration form store
-     public function form_store(Request $request)
-     {
-        // dd($request->all());
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'father_name' => 'required',
-            'nrc' => 'required',
-            'phone_no' => 'required',
-            'address' => 'required',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-              ->withInput()
-              ->withErrors($validator);
-        }
-
-        $arr=[
-                'name'=>$request->name,
-                'father_name'=>$request->father_name,
-                'nrc'=>$request->nrc,
-                'phone_no'=>$request->phone_no,
-                'address'=>$request->address,
-                'organization'=>($request->organization)? $request->organization: '',
-                'gender'=>$request->gender,
-                'monastery_name'=>($request->monastery_name)?$request->monastery_name:'',
-                'is_party'=>($request->is_party)?$request->is_party:'0',
-                'education'=>($request->education)?$request->education:'',
-            ];
-
-        // dd($arr);
-        $user=Form::create($arr);
-        Mail::send('emails.memberEmail', ['user' => $user], function ($m) use ($user)
-        {
-            $m->to('admin@admin.com', 'admin')
-              ->subject('Receiving Mail From Visitor : ' . $user->name);
-        });
-
-        return redirect()->back()->with('success','Thanks for your registeration!');
-     }
 
     public function downfun($id)
     {

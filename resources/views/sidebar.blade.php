@@ -23,9 +23,9 @@
   <article>
     <a href="{{route('user.category', ['category' => 'people'])}}"><h6><i class="fa fa-location-arrow"></i> &nbsp;တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား</h6></a>
       @foreach($people as $p)
-        <i class="fa fa-user"> &nbsp; {{$p->title }}</i><br>
+        <i class="fa fa-user"> &nbsp; {{$p->c_name }}</i><br>
         <i class="fa fa-calendar" aria-hidden="true">
-                  <small>&nbsp; တရားပြဲဲက်င္းပမည့္ရက္:&nbsp; {{$p->custom_field5}}</small>
+                  <small>&nbsp; {{$p->date}}</small>
         </i>
       <br>
       <br>

@@ -107,6 +107,29 @@ Route::group(['prefix' => 'admin'], function(){
 
 		Route::post('/တရားပဲြပင့္ေလွ်ာက္သူမ်ား',array('as'=>'admin.people.search','uses'=>'PeopleController@search'));
 		###################################################################################
+		// Route for upload gallery
+
+		Route::get('/gallery', ['as' => 'admin.gallery', 'uses' => 'GalleryController@index']);
+
+		Route::get('/gallery/create', ['as' => 'admin.gallery.create', 'uses' => 'GalleryController@create']);
+
+		Route::post('/gallery/store', ['as' => 'admin.gallery.store', 'uses' => 'GalleryController@store']);
+		// add route for gallery update by ASO
+		Route::get('/gallery/{id}/edit', ['as' => 'admin.gallery.edit', 'uses' => 'GalleryController@edit']);
+
+		Route::post('/post/{id}/update', ['as' => 'admin.post.update', 'uses' => 'GalleryController@update']);
+
+		Route::get('/post/{id}/show', ['as' => 'admin.post.show', 'uses' => 'GalleryController@show']);
+
+		Route::get('/post/{id}/delete', ['as' => 'admin.post.delete', 'uses' => 'GalleryController@delete']);
+
+		Route::post('/post',array('as'=>'admin.post.search','uses'=>'GalleryController@search'));
+
+		Route::get('/contact', ['as' => 'admin.contact', 'uses' => 'ContactController@index']);
+
+		Route::get('/contact/{id}/delete', ['as' => 'admin.contact.delete', 'uses' => 'ContactController@delete']);
+
+		Route::post('/contact',array('as'=>'admin.contact.search','uses'=>'ContactController@search'));
 
 	});
 });
