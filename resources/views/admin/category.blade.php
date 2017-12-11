@@ -38,15 +38,16 @@
 			<table class="table table-striped table-bordered table-hover"> 
 				<thead>
 					<tr>
-						<td>ID</td>
+						<td>NO</td>
 						<td>Name</td>
 						<td><input type="submit" class="btn btn-xs btn-default" onclick="window.location.href='{{ route('admin.category.create') }}'" value="Add New" ></td>
 					</tr>					
 				</thead>
 				<tbody>
+					<?php $i=1; ?>
 					@foreach($cat as $c)
 					<tr>
-						<td>{{ $c->id }}</td>
+						<td>{{ $i++ }}</td>
 						<td>
 						{{ $c->title }}
 						<br>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Model\Post;
 use App\Model\Category;
+use App\Model\People;
+use App\Model\Student;
 use App\Form;
 use App\Model\MonkEntranceForm;
 use App\Contact;
@@ -60,7 +62,7 @@ class RegistrationController extends Controller
 
         return redirect()->back()->with('success','Thanks for contacting us!');
      }
-
+#####################################################################################################
     //သင္တန္း၀င္ခြင့္ေလွ်ာက္လႊာ
     public function monk_student_store(Request $request)
     {
@@ -115,6 +117,7 @@ class RegistrationController extends Controller
 
         return redirect()->back()->with('success','သင္တန္း၀င္ခြင့္ေလွ်ာက္လႊာ တင္ျခင္းေအာင္ျမင္ပါသည္။');
     }
+    ##############################################################################################
     // စာသင္သားသံဃာမ်ား ၀င္ခြင့္ပုံစံ
     public function monk_entrace_store(Request $request)
     {   
@@ -170,6 +173,111 @@ class RegistrationController extends Controller
 
         return redirect()->back()->with('success','Thanks for contacting us!');
     }
+    ################################################################################################
+ //တရားပဲြပင့္ေလွ်ာက္လုိ သူမ်ား
+    public function people_store(Request $request)
+    {   
+        // dd($request->all());
+         $validator = Validator::make($request->all(), [
+          "တရားပဲြက်င္းပမည့္ရက္" => 'required',
+          "ဖုန္းနံပါတ္" => 'required',
+        ]);
 
+        if ($validator->fails()) {
+            return redirect()->back()
+              ->withInput()
+              ->withErrors($validator);
+        }
+
+        $arr=[
+                "title"=>($request->အေၾကာင္းအရင္းေခါင္းစဥ္)?$request->အေၾကာင္းအရင္းေခါင္းစဥ္:'',
+                "place"=>($request->တည္ေနရာ)?$request->တည္ေနရာ:'',
+                "date"=>$request->တရားပဲြက်င္းပမည့္ရက္,
+                "c_name"=>($request->တာ၀န္ခံ၏အမည္)?$request->တာ၀န္ခံ၏အမည္:'',
+                "c_address"=>($request->ေနရပ္လိပ္စာ)?$request->ေနရပ္လိပ္စာ:'',
+                "phone"=>$request->ဖုန္းနံပါတ္,
+                "position"=>($request->အေနအထား)?$request->အေနအထား:''
+            ];
+
+        // dd($arr);
+
+        // $input['email']=($request->email)?$request->email:'';
+        $user=People::create($arr);
+        /**tempory commit out **/
+        /**
+        if($input['email']!=''){
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com"), $user->email]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        }else{
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com")]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        } **/
+
+        return redirect()->back()->with('success','Thanks for contacting us!');   
+    }
+
+    public function pyinnyardarna_store(Request $request)
+    {
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+          "အမည္" => 'required',
+          "အဖအမည္"=>'required',
+          "အမိအမည္"=>'required',
+          "လူမ်ိဳး"=>'required',
+          "ကိုးကြယ္သည့္ဘာသာ"=>'required',
+          "ေမြးသကၠရာဇ္"=>'required',
+          "ႏုိင္ငံသားစီစစ္ေရးအမွတ္" => 'required',
+          "တကၠသိုလ္၀င္တန္းေအာင္ျမင္ခဲ့သည့္ခုႏွစ္သကၠရာဇ္ႏွင့္ေအာင္ျမင္ခဲ့သည့္ေက်ာင္းအမည္"=> 'required',
+          "ဤသင္တန္းေက်ာင္းတြင္တက္ေရာက္ဖူးျခင္းရွိမရွိ" => 'required',
+          "ဆက္သြယ္ရန္ဖုန္း" => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+              ->withInput()
+              ->withErrors($validator);
+        }
+
+        $arr=[
+                "name"=>$request->အမည္,
+                "f_name"=>$request->အဖအမည္,
+                "m_name"=>$request->အမိအမည္,
+                "race"=>$request->လူမ်ိဳး,
+                "reg"=>$request->ကိုးကြယ္သည့္ဘာသာ,
+                "address"=>$request->ေနရပ္လိပ္စာ,
+                "birth_date"=>$request->ေမြးသကၠရာဇ္,
+                "nrc"=>$request->ႏုိင္ငံသားစီစစ္ေရးအမွတ္,
+                "passed_date_school"=>$request->တကၠသိုလ္၀င္တန္းေအာင္ျမင္ခဲ့သည့္ခုႏွစ္သကၠရာဇ္ႏွင့္ေအာင္ျမင္ခဲ့သည့္ေက်ာင္းအမည္,
+                "is_attend"=>$request->ဤသင္တန္းေက်ာင္းတြင္တက္ေရာက္ဖူးျခင္းရွိမရွိ,                
+                "phone_no"=>$request->ဆက္သြယ္ရန္ဖုန္း
+            ];
+
+        // dd($arr);
+
+        $user=Student::create($arr);
+        /**tempory commit out **/
+        /**
+        if($input['email']!=''){
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com"), $user->email]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        }else{
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com")]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        } **/
+
+        return redirect()->back()->with('success','ကြန္ပ်ဴတာသင္တန္း ၀င္ခြင့္ေလွ်ာက္ထားျပီးပါျပီ');
+    }
 
 }
