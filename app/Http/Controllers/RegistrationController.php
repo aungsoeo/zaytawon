@@ -280,4 +280,47 @@ class RegistrationController extends Controller
         return redirect()->back()->with('success','ကြန္ပ်ဴတာသင္တန္း ၀င္ခြင့္ေလွ်ာက္ထားျပီးပါျပီ');
     }
 
+    public function grab_news(Request $request)
+    {
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email'=> 'email|unique:contact_form,email',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+              ->withInput()
+              ->withErrors($validator);
+        }
+
+        $arr=[
+                'name'=>$request->name,
+                'email'=>($request->email)?$request->email:'',
+                'url'=>'',
+                'comment'=>'',
+            ];
+// 
+        // dd($arr);
+        $input['email']=($request->email)?$request->email:'';
+        $user=Contact::create($arr);
+        /**tempory commit out **/
+        /**
+        if($input['email']!=''){
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com"), $user->email]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        }else{
+            Mail::send('emails.contactEmail', ['user' => $user], function($m) use ($user) {
+                $m->from('admin@zaytawon.com', 'Zaytawon Admin');
+                $m->to([env("ADMIN_EMAIL", "fancystar7@gmail.com")]);
+                $m->subject('Receiving Mail From Visitor : ' . $user->name);
+            });
+        } **/
+
+        return redirect()->back()->with('success','Thanks for contacting us!');
+    }
+
 }

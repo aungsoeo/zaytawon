@@ -54,9 +54,11 @@
 						{!! MyFuncs::getCategory($c->Categories, 1); !!}
 						</td>
 						<td>							
-							<input type="submit" class="btn btn-primary" onclick="window.location.href='{{ route('admin.category.edit',$c->id) }}'" value="Edit">
-							<input type="submit" class="btn btn-danger" onclick="window.location.href='{{ route('admin.category.delete',$c->id)}}'" value="Delete">
-						
+							<!-- <input type="submit" class="btn btn-primary" onclick="window.location.href='{{ route('admin.category.edit',$c->id) }}'" value="Edit"> -->
+						<!-- 	<input type="submit" class="btn btn-danger" onclick="window.location.href='{{ route('admin.category.delete',$c->id)}}'" value="Delete"> -->
+							<a href="{{ route('admin.category.delete',$c->id)}}" class="btn btn-link g_delete" onclick="return confirm('Are you sure to delete ?')">
+								<button class="btn btn-danger">Delete</button>
+							</a>
 						</td>
 					</tr>						
 					@endforeach

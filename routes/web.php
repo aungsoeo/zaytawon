@@ -162,5 +162,6 @@ Route::post('/monk_entrace/store',['as'=>'monk_entrace.store', 'uses'=>'Registra
 
 Route::post('/တရားပဲြပင့္ေလွ်ာက္လုိသူမ်ား/store',['as'=>'people.store', 'uses'=>'RegistrationController@people_store']);
 
-
 Route::post('/pyinnyardarna/store',['as'=>'pyinnyardarna.store', 'uses'=>'RegistrationController@pyinnyardarna_store']);
+
+Route::post('/grab_news/store',['as'=>'grab_news.store', 'uses'=>'RegistrationController@grab_news']);

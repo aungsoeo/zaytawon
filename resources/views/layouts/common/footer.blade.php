@@ -26,11 +26,22 @@
       </div>
       <div class="one_third">
         <h6 class="title">Grab Our Newsletter</h6>
-        <form method="post" action="#">
+        <form method="POST" action="{{ route('grab_news.store') }}">
+          {!! csrf_field() !!}
           <fieldset>
             <legend>Newsletter:</legend>
-            <input class="btmspace-15" type="text" value="" placeholder="Name">
-            <input class="btmspace-15" type="text" value="" placeholder="Email">
+            <input class="btmspace-15" type="text"  name="name"  value="{{old('name')}}" placeholder="Name">
+            @if ($errors->has('name'))
+                  <span class="help-block" style="color: #0e6ca1">
+                      <strong>{{ $errors->first('name') }}</strong>
+                  </span>
+              @endif
+            <input class="btmspace-15" type="text"  name="email" value="{{old('email')}}" placeholder="Email">
+              @if ($errors->has('email'))
+                  <span class="help-block" style="color: #0e6ca1">
+                      <strong>{{ $errors->first('email') }}</strong>
+                  </span>
+              @endif
             <button type="submit" value="submit">Submit</button>
           </fieldset>
         </form>
