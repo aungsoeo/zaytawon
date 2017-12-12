@@ -65,44 +65,61 @@ class GalleryController extends Controller
                 );
         // var_dump($data); exit; 
               $res=Gallery::create($data); 
-            return back()->with('success','Gallery is successfully Uploaded!');   
+               return redirect()->route('admin.gallery')->with('success','Gallery is successfully Uploaded!');
       }
   // public function show()
   //   {
   //     $output=MultipleUpload::get();
   //     return view('photo.ajaxshow')->with('output',$output);
   //   }
-  // public function edit($id)
-  // {
-  //   $output=MultipleUpload::where('id','=',$id)->get();
-  //   //dd($output);
-  //   return view('photo.edit')->with('data',$output);
-  // }
-  // public function update(Request $request){
-  //       $remained_photo = $request['remained_photo'][0];  
-  //       //echo $remained_photo;
-  //        if($input=$request['files'])
-  //       {
-  //           foreach($input as $file)
-  //           {
-  //             $name = $file->getClientOriginalName();
-  //             $file->move('image', $name);
-  //             $remained_photo=$remained_photo.",".$name;
-  //           }
-  //       }
-  //       //dd($remained_photo);
-  //        $insert_data = array(
-  //             'name'  => $request['product_name'],
-  //             'price'   => $request['product_price'],
-  //             'image'=>$remained_photo
-  //             );
-  //         MultipleUpload::where('id', $request['id'])->update($insert_data);
-  //        return view('photo.show');
-  // }
+  // ********edit and update function*****************
+  public function edit($id)
+  {
+    $output=Gallery::where('id','=',$id)->get();
+    //dd($output);
+    return view('admin.gallery_edit')->with('data',$output);
+  }
+ public function update(Request $request)
+ {      
+        $title=$request['title'];
+        $short_description=$request['short_description'];
+        $remained_photo = $request['remained_photo'][0];  
+      
+         if($input=$request['files'])
+        {
+            foreach($input as $file)
+            {
+              $name = $file->getClientOriginalName();
+              $file->move('image', $name);
+              $remained_photo=$remained_photo.",".$name;
+            }
+        }
+        //dd($remained_photo);
+         $insert_data = array(
+              'title'  => $title,
+              'short_description' => $short_description,
+              'file'=> $remained_photo
+              );
+          Gallery::where('id', $request['id'])->update($insert_data);
+          return redirect()->route('admin.gallery')->with('success','Gallery is successfully updated!');
+   }
 
-     public function delete($id)
+    public function delete($id)
     {
       $category = Gallery::find($id)->delete();
       return redirect()->back()->with('success','Gallery is successfully deleted!');
+    }
+
+   
+    public function search(Request $request)
+    {   
+        $input = $request->all();
+        if($request->get('search')){
+            $gallery = Gallery::where("title", "LIKE", "%{$request->get('search')}%")
+                ->orWhere("short_description", "LIKE", "%{$request->get('search')}%")->paginate(10);    
+        }else{
+           $gallery= Gallery::paginate(10);
+         }
+        return view('admin.gallery',compact('gallery'));
     }
 }

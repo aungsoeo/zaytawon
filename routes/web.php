@@ -117,13 +117,11 @@ Route::group(['prefix' => 'admin'], function(){
 		// add route for gallery update by ASO
 		Route::get('/gallery/{id}/edit', ['as' => 'admin.gallery.edit', 'uses' => 'GalleryController@edit']);
 
-		Route::post('/gallery/{id}/update', ['as' => 'admin.post.update', 'uses' => 'GalleryController@update']);
-
-		Route::get('/gallery/{id}/show', ['as' => 'admin.post.show', 'uses' => 'GalleryController@show']);
+		Route::post('/gallery/update', ['as' => 'admin.gallery.update', 'uses' => 'GalleryController@update']);
 
 		Route::get('/gallery/{id}/delete', ['as' => 'admin.gallery.delete', 'uses' => 'GalleryController@delete']);
 
-		Route::post('/post',array('as'=>'admin.post.search','uses'=>'GalleryController@search'));
+		Route::post('/gallery',array('as'=>'admin.gallery.search','uses'=>'GalleryController@search'));
 ###########################################################################################
 		Route::get('/contact', ['as' => 'admin.contact', 'uses' => 'ContactController@index']);
 

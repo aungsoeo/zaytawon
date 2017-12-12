@@ -77,8 +77,7 @@
 			                ?>
 						</td>
 						<td>
-							<button class="btn btn-primary editphoto" value="{{$g->id}}">Edit</button>
-
+							<input type="submit" class="btn btn-primary" onclick="window.location.href='{{ route('admin.gallery.edit',$g->id) }}'" value="Edit">
 							 <input type="submit" class="btn btn-danger" onclick="window.location.href='{{ route('admin.gallery.delete',$g->id)}}'" value="Delete">
 						</td>
 					</tr>

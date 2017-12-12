@@ -3,6 +3,34 @@
 @section('styles')
 @parent
 <!-- your custom css here -->
+<style type="text/css">
+  #progress-wrp {
+      border: 1px solid #0099CC ;
+      padding: 1px;
+      position: relative;
+      border-radius: 3px;
+      margin: 10px;
+      text-align: left;
+      background: #fff;
+      box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.12);
+      height: 20px;
+      width: 98%;
+    }
+    #progress-wrp .progress-bar{
+        height: 20px;
+        border-radius: 3px;
+        background-color: #f39ac7 ;
+        width: 0;
+        box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.11);
+    }
+    #progress-wrp .status{
+        top:3px;
+        left:50%;
+        position:absolute;
+        display:inline-block;
+        color: #000000 ;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -86,7 +114,12 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label"> </label>
                     <div class="col-md-9">
-                        <div class="progress-bar" style="width:0px;height: 10px;background: green;display: block; transition: width .3s;"></div>
+                        <!-- <div class="progress-bar" style="width:0px;height: 10px;background: green;display: block; transition: width .5s;"></div> -->
+                        <div id="progress-wrp">
+                          <div class="progress-bar"></div >
+                          <div class="status">0%</div>
+                        </div>
+
                     </div>
                     
                 </div>
@@ -166,7 +199,8 @@
             data: form_data,
             success : function(data){
                 alert('Gallery is successfully Uploaded!');
-                location.reload(); 
+               document.getElementById('multipleupload').reset();
+               window.location.replace("http://localhost/zaytawon/public/admin/gallery");
             }      
         });
     });
