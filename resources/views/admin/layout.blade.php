@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +29,12 @@
     <link rel="icon" href="{{ asset('images/demo/logo.jpeg') }}" type="image/jpeg">
  
     <script src="{{ asset('assets/jquery.min.js') }}"></script>
+
+    <!-- ### link summernote for text editor### -->
+    <link href="{{ asset('summernote/dist/summernote.css') }}" rel="stylesheet">
+    <script src="{{ asset('summernote/dist/summernote.js') }}"></script>
+    <!-- ### add summernote for text editor### -->
+
     <style>
     .navbar-default {
         background-color: #9b0c15;

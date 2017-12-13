@@ -118,7 +118,7 @@
                     <label class="col-md-2 control-label">Detail Description</label>
 
                     <div class="col-md-9">
-                        <textarea class="form-control" style="height:300px" name="detail_description">{{ old('detail_description') }}</textarea>
+                             <textarea class="form-control" id="summernote" style="height:300px" name="detail_description">{{ old('detail_description') }}</textarea>
 
                         @if ($errors->has('detail_description'))
                             <span class="help-block">
@@ -195,5 +195,14 @@
 @parent
 
 <script type="text/javascript" src="{{ asset('js/getsubfrommain.js') }}"></script>
-
+<script>
+    $(document).ready(function() {
+        $('#summernote').summernote({
+               height: 300,                 // set editor height
+               minHeight: null,             // set minimum height of editor
+               maxHeight: null,             // set maximum height of editor
+               focus: true  
+        });
+    });
+  </script>
 @endsection

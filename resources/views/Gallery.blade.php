@@ -41,7 +41,7 @@
               <?php
                       }
               ?>
-                <br><hr>
+              <br><br><br><br>
               @endforeach
             </ul>
 
